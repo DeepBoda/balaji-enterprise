@@ -77,7 +77,7 @@ export default function Footer() {
                     </p>
                     <div className="flex items-center gap-2 opacity-30 hover:opacity-100 transition-opacity duration-500">
                         <span className="text-xs uppercase tracking-widest text-stone-500">Designed by</span>
-                        <span className="font-bold text-amber-500 tracking-wider text-sm">ANTIGRAVITY</span>
+                        <span className="font-bold text-amber-500 tracking-wider text-sm">DEEP BODA</span>
                     </div>
                 </div>
             </div>
