@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -23,13 +24,11 @@ export default function Navbar() {
                     : "bg-transparent py-6"
             )}
         >
-            <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+            <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-20">
                 {/* Logo */}
-                <div className="flex items-center gap-2">
-                    <span className="text-2xl font-serif font-bold text-honey-900 tracking-tight">
-                        Balaji Enterprice
-                    </span>
-                </div>
+                <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-2xl font-serif font-bold text-amber-900 tracking-tight">
+                    Balaji Enterprice
+                </Link>
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">

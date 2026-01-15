@@ -15,40 +15,47 @@ export default function Uses() {
     const y2 = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
     return (
-        <section ref={container} className="py-32 bg-amber-950 overflow-hidden relative">
+        <section ref={container} className="py-32 bg-[#FFFBF0] overflow-hidden relative">
             {/* Background */}
             <div className="absolute inset-0 opacity-10 pattern-dots" />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10 grid md:grid-cols-2 gap-16 items-center">
                 <div className="space-y-8">
-                    <span className="text-amber-400 font-bold tracking-widest uppercase text-sm">
+                    <span className="text-amber-600 font-bold tracking-widest uppercase text-sm">
                         Daily Rituals
                     </span>
-                    <h2 className="text-4xl md:text-6xl font-serif font-bold text-amber-50 leading-tight">
+                    <h2 className="text-4xl md:text-6xl font-serif font-bold text-amber-950 leading-tight">
                         More Than Just <br />
-                        <span className="text-amber-400">Sweetness.</span>
+                        <span className="text-amber-600">Sweetness.</span>
                     </h2>
-                    <p className="text-amber-200/60 text-lg leading-relaxed max-w-md">
+                    <p className="text-amber-900/70 text-lg leading-relaxed max-w-md">
                         From your morning lemon water to a midnight face mask, our honey is a versatile superfood that enhances your wellness routine.
                     </p>
 
-                    <ul className="space-y-6 pt-4">
+                    <ul className="space-y-8 pt-8">
                         {[
-                            { title: "Morning Boost", desc: "Warm water + Lemon + Honey" },
-                            { title: "Skincare", desc: "Natural humectant for glowing skin" },
-                            { title: "Sweet Sleep", desc: "A spoonful before bed aids recovery" }
+                            { title: "Morning Boost", desc: "Warm water + Lemon + Honey", img: "/images/tea.png" },
+                            { title: "Skincare", desc: "Natural humectant for glowing skin", img: "/images/mask.png" },
+                            { title: "Sweet Sleep", desc: "A spoonful before bed aids recovery", img: "/images/spoon.png" }
                         ].map((item, idx) => (
                             <motion.li
                                 key={idx}
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: idx * 0.2 }}
-                                className="flex items-start gap-4 border-b border-amber-900/30 pb-4"
+                                className="flex items-center gap-6 border-b border-amber-900/10 pb-6 last:border-0"
                             >
-                                <span className="text-2xl">✨</span>
+                                <div className="relative w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0 shadow-lg border border-amber-900/10">
+                                    <Image
+                                        src={item.img}
+                                        alt={item.title}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
                                 <div>
-                                    <h4 className="text-amber-100 font-bold">{item.title}</h4>
-                                    <p className="text-amber-200/40 text-sm">{item.desc}</p>
+                                    <h4 className="text-amber-900 font-bold text-lg">{item.title}</h4>
+                                    <p className="text-amber-700/60 text-sm font-medium">{item.desc}</p>
                                 </div>
                             </motion.li>
                         ))}
@@ -56,17 +63,23 @@ export default function Uses() {
                 </div>
 
                 <div className="relative h-[600px] hidden md:block">
-                    {/* Parallax Images (Placeholders using colors as I can't generate 3 images quickly, reusing generic or colors) */}
-                    <motion.div style={{ y: y1 }} className="absolute top-0 right-0 w-64 h-80 bg-stone-200 rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-900/20 z-10">
-                        <div className="w-full h-full bg-cover bg-center bg-[#FFFBF0] flex items-center justify-center">
-                            <span className="text-6xl">🍵</span>
-                        </div>
+                    {/* Parallax Images */}
+                    <motion.div style={{ y: y1 }} className="absolute top-10 right-10 w-72 h-96 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/50 z-10 rotate-3">
+                        <Image
+                            src="/images/tea.png"
+                            alt="Morning Ritual"
+                            fill
+                            className="object-cover hover:scale-110 transition-transform duration-700"
+                        />
                     </motion.div>
 
-                    <motion.div style={{ y: y2 }} className="absolute bottom-0 left-10 w-64 h-80 bg-amber-100 rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-900/20 z-20">
-                        <div className="w-full h-full bg-cover bg-center bg-[#FFFBF0] flex items-center justify-center">
-                            <span className="text-6xl">🧖‍♀️</span>
-                        </div>
+                    <motion.div style={{ y: y2 }} className="absolute bottom-10 left-10 w-64 h-80 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/50 z-20 -rotate-3">
+                        <Image
+                            src="/images/mask.png"
+                            alt="Skincare Ritual"
+                            fill
+                            className="object-cover hover:scale-110 transition-transform duration-700"
+                        />
                     </motion.div>
                 </div>
             </div>

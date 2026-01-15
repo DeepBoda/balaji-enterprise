@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
+import Grain from "@/components/Grain";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -27,6 +28,7 @@ export default function RootLayout({
           playfair.variable
         )}
       >
+        {/* <Grain /> */}
         <Preloader />
         <SmoothScroll />
         {children}

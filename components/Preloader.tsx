@@ -4,52 +4,55 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Preloader() {
-    const [isLoading, setIsLoading] = useState(true);
+    const [complete, setComplete] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2000); // 2 second fake load
+            setComplete(true);
+        }, 3000); // 3s intro
         return () => clearTimeout(timer);
     }, []);
 
     return (
-        <AnimatePresence mode="wait">
-            {isLoading && (
+        <AnimatePresence>
+            {!complete && (
                 <motion.div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-[#FFFBF0]"
-                    exit={{ y: "-100%", transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
+                    exit={{ y: "-100%" }}
+                    transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-[#FFFBF0] overflow-hidden"
                 >
-                    {/* Honey Drip SVG */}
+                    {/* Honey Drip Graphic (svg path or simple shape) */}
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="relative flex flex-col items-center"
-                    >
-                        <svg className="w-32 h-32 text-amber-500 mb-4" viewBox="0 0 100 100" fill="currentColor">
-                            <motion.path
-                                initial={{ d: "M50 0 C50 0 50 20 50 20 C50 20 20 40 20 60 C20 80 35 95 50 95 C65 95 80 80 80 60 C80 40 50 20 50 20 C50 20 50 0 50 0 Z" }}
-                                animate={{
-                                    d: [
-                                        "M50 0 C50 0 50 20 50 20 C50 20 20 40 20 60 C20 80 35 95 50 95 C65 95 80 80 80 60 C80 40 50 20 50 20 C50 20 50 0 50 0 Z",
-                                        "M50 0 C50 0 55 25 55 25 C55 25 30 45 30 65 C30 85 40 98 50 98 C60 98 70 85 70 65 C70 45 55 25 55 25 C55 25 50 0 50 0 Z",
-                                        "M50 0 C50 0 50 20 50 20 C50 20 20 40 20 60 C20 80 35 95 50 95 C65 95 80 80 80 60 C80 40 50 20 50 20 C50 20 50 0 50 0 Z"
-                                    ]
-                                }}
-                                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                            />
-                        </svg>
-                        <h1 className="text-2xl font-serif font-bold text-amber-950 tracking-widest uppercase">
-                            Balaji
-                        </h1>
+                        initial={{ height: "0%" }}
+                        animate={{ height: "100%" }}
+                        transition={{ duration: 1.5, ease: "easeInOut" }}
+                        className="absolute top-0 w-24 bg-amber-500/20 blur-3xl opacity-50"
+                    />
+
+                    <div className="relative z-10 text-center">
                         <motion.div
-                            className="h-1 bg-amber-200 mt-2 rounded-full"
-                            initial={{ width: 0 }}
-                            animate={{ width: "100%" }}
-                            transition={{ duration: 1.8 }}
-                        />
-                    </motion.div>
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5 }}
+                            className="mb-4"
+                        >
+                            {/* Premium Drop Icon */}
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-amber-600 mx-auto">
+                                <path d="M12 22C12 22 5 14 5 8.5C5 5 8 2 12 2C16 2 19 5 19 8.5C19 14 12 22 12 22Z" fill="#d97706" fillOpacity="0.8" stroke="none" />
+                                <path d="M12 22C12 22 5 14 5 8.5C5 5 8 2 12 2C16 2 19 5 19 8.5C19 14 12 22 12 22Z" stroke="#78350f" strokeOpacity="0.2" />
+                                <path d="M14 6C14 6 15 4 17 4" stroke="#FFF" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+                            </svg>
+                        </motion.div>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="text-amber-900 font-serif italic text-xl tracking-widest"
+                        >
+                            The Golden Nectar
+                        </motion.p>
+                    </div>
                 </motion.div>
             )}
         </AnimatePresence>

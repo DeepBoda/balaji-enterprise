@@ -3,57 +3,33 @@
 import { motion } from "framer-motion";
 
 const MarqueeContent = () => (
-    <div className="flex items-center gap-12 px-6">
-        <span className="text-4xl md:text-6xl font-serif font-bold text-amber-950/20 uppercase tracking-widest whitespace-nowrap">
-            100% Organic
-        </span>
-        <span className="text-2xl">🍯</span>
-        <span className="text-4xl md:text-6xl font-serif font-bold text-amber-950/20 uppercase tracking-widest whitespace-nowrap">
-            Raw & Unfiltered
-        </span>
-        <span className="text-2xl">🐝</span>
-        <span className="text-4xl md:text-6xl font-serif font-bold text-amber-950/20 uppercase tracking-widest whitespace-nowrap">
-            Ethically Sourced
-        </span>
-        <span className="text-2xl">🌿</span>
-        <span className="text-4xl md:text-6xl font-serif font-bold text-amber-950/20 uppercase tracking-widest whitespace-nowrap">
-            Pure Nature
-        </span>
-        <span className="text-2xl">✨</span>
+    <div className="flex items-center gap-16 px-6">
+        <motion.div
+            className="flex whitespace-nowrap gap-16"
+            animate={{ x: "-50%" }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        >
+            {[...Array(2)].map((_, i) => (
+                <div key={i} className="flex gap-16 items-center">
+                    <span className="text-8xl md:text-9xl font-serif font-black text-amber-950/5 uppercase tracking-tighter">
+                        Pure . Wild . Organic .
+                    </span>
+                    <span className="text-8xl md:text-9xl font-serif font-black text-amber-500/10 uppercase tracking-tighter">
+                        100% Natural Honey .
+                    </span>
+                    <span className="text-8xl md:text-9xl font-serif font-black text-amber-950/5 uppercase tracking-tighter">
+                        From the Hive .
+                    </span>
+                </div>
+            ))}
+        </motion.div>
     </div>
 );
 
 export default function Marquee() {
     return (
-        <section className="py-12 bg-[#FFFBF0] overflow-hidden border-y border-amber-900/5">
-            <div className="flex">
-                <motion.div
-                    initial={{ x: 0 }}
-                    animate={{ x: "-100%" }}
-                    transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear",
-                    }}
-                    className="flex"
-                >
-                    <MarqueeContent />
-                    <MarqueeContent />
-                </motion.div>
-                <motion.div
-                    initial={{ x: 0 }}
-                    animate={{ x: "-100%" }}
-                    transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear",
-                    }}
-                    className="flex"
-                >
-                    <MarqueeContent />
-                    <MarqueeContent />
-                </motion.div>
-            </div>
+        <section className="py-20 bg-[#FFFBF0] overflow-hidden relative border-y border-amber-900/5">
+            <MarqueeContent />
         </section>
     );
 }
