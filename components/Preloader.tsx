@@ -9,49 +9,64 @@ export default function Preloader() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setComplete(true);
-        }, 3000); // 3s intro
+        }, 2500);
         return () => clearTimeout(timer);
     }, []);
+
+    // Honeycomb Path (Hexagon)
+    const hexPath = "M12 2l10 6v12l-10 6l-10-6V8z";
 
     return (
         <AnimatePresence>
             {!complete && (
                 <motion.div
-                    exit={{ y: "-100%" }}
-                    transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-[#FFFBF0] overflow-hidden"
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0a0a0a] overflow-hidden"
                 >
-                    {/* Honey Drip Graphic (svg path or simple shape) */}
-                    <motion.div
-                        initial={{ height: "0%" }}
-                        animate={{ height: "100%" }}
-                        transition={{ duration: 1.5, ease: "easeInOut" }}
-                        className="absolute top-0 w-24 bg-amber-500/20 blur-3xl opacity-50"
-                    />
+                    {/* Background Glow */}
+                    <div className="absolute inset-0 bg-amber-900/10 radial-gradient" />
 
-                    <div className="relative z-10 text-center">
+                    <div className="relative z-10 flex items-center justify-center">
+                        {/* The Hive (Grid of Hexagons) */}
+                        <div className="grid grid-cols-3 gap-2 rotate-90">
+                            {[...Array(7)].map((_, i) => (
+                                <motion.div
+                                    key={i}
+                                    className={`w-12 h-12 flex items-center justify-center ${i === 3 ? 'col-start-2' : ''}`}
+                                    initial={{ scale: 0, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    transition={{
+                                        delay: i * 0.1,
+                                        type: "spring",
+                                        stiffness: 200,
+                                        damping: 10
+                                    }}
+                                >
+                                    <svg viewBox="0 0 24 24" className="w-full h-full text-amber-500 fill-amber-500/20 stroke-current stroke-1">
+                                        <path d={hexPath} />
+                                    </svg>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* The Bee (Orbiting Particle) */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5 }}
-                            className="mb-4"
+                            className="absolute w-full h-full"
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                         >
-                            {/* Premium Drop Icon */}
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-amber-600 mx-auto">
-                                <path d="M12 22C12 22 5 14 5 8.5C5 5 8 2 12 2C16 2 19 5 19 8.5C19 14 12 22 12 22Z" fill="#d97706" fillOpacity="0.8" stroke="none" />
-                                <path d="M12 22C12 22 5 14 5 8.5C5 5 8 2 12 2C16 2 19 5 19 8.5C19 14 12 22 12 22Z" stroke="#78350f" strokeOpacity="0.2" />
-                                <path d="M14 6C14 6 15 4 17 4" stroke="#FFF" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-                            </svg>
+                            <motion.div
+                                className="absolute -top-8 left-1/2 w-4 h-4 bg-yellow-400 rounded-full blur-[2px] shadow-[0_0_15px_rgba(251,191,36,0.8)]"
+                                initial={{ scale: 0 }}
+                                animate={{ scale: [1, 1.2, 1] }}
+                                transition={{ duration: 0.5, repeat: Infinity }}
+                            />
+                            {/* Bee Trail */}
+                            <motion.div
+                                className="absolute -top-8 left-1/2 w-20 h-1 bg-gradient-to-l from-yellow-400/50 to-transparent blur-[1px] origin-right -translate-x-full"
+                            />
                         </motion.div>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="text-amber-900 font-serif italic text-xl tracking-widest"
-                        >
-                            The Golden Nectar
-                        </motion.p>
                     </div>
                 </motion.div>
             )}
