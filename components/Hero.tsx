@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Star, ShieldCheck, Truck } from "lucide-react";
 import Image from "next/image";
+import Magnetic from "@/components/Magnetic";
 
 export default function Hero() {
     return (
@@ -55,12 +56,16 @@ export default function Hero() {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="flex flex-wrap gap-4"
                     >
-                        <Button size="lg" className="h-14 px-8 text-lg rounded-full shadow-xl shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-105 transition-all duration-300">
-                            Shop Now - ₹350
-                        </Button>
-                        <Button variant="outline" size="lg" className="h-14 px-8 text-lg rounded-full border-2 border-amber-200 hover:bg-amber-50 hover:border-amber-300 text-amber-900">
-                            View Benefits
-                        </Button>
+                        <Magnetic>
+                            <Button size="lg" className="h-14 px-8 text-lg rounded-full shadow-xl shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-105 transition-all duration-300">
+                                Shop Now - ₹350
+                            </Button>
+                        </Magnetic>
+                        <Magnetic>
+                            <Button variant="outline" size="lg" className="h-14 px-8 text-lg rounded-full border-2 border-amber-200 hover:bg-amber-50 hover:border-amber-300 text-amber-900">
+                                View Benefits
+                            </Button>
+                        </Magnetic>
                     </motion.div>
 
                     <motion.div

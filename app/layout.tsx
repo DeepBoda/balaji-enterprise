@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import SmoothScroll from "@/components/SmoothScroll";
+import Preloader from "@/components/Preloader";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  title: "Balaji Enterprice | Pure Nature",
-  description: "Premium honey and natural products.",
+  title: "Balaji Enterprice | Premium Organic Honey",
+  description: "Experience the finest raw honey, ethically harvested from wild hives.",
 };
 
 export default function RootLayout({
@@ -25,8 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased bg-[#FFFBF0] text-amber-950`}
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          inter.variable,
+          playfair.variable
+        )}
       >
+        <Preloader />
+        <SmoothScroll />
         {children}
       </body>
     </html>
