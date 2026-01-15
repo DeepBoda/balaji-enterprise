@@ -26,11 +26,15 @@ const features = [
     },
 ];
 
+import HoneyDrip from "@/components/ui/HoneyDrip";
+
 export default function Features() {
     return (
-        <section className="py-24 bg-amber-50 relative overflow-hidden">
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <div className="text-center max-w-2xl mx-auto mb-16">
+        <section className="relative bg-amber-50 relative overflow-hidden">
+            <HoneyDrip className="absolute top-0 left-0 w-full z-10 text-white fill-white" />
+
+            <div className="py-24 container mx-auto px-4 md:px-6 relative z-10">
+                <div className="text-center max-w-2xl mx-auto mb-16 pt-12">
                     <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mb-4">
                         Why Choose Balaji?
                     </h2>
@@ -47,10 +51,10 @@ export default function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: idx * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group"
+                            className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group border border-amber-100/50"
                         >
-                            <div className="w-16 h-16 mx-auto bg-amber-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                <feature.icon className="w-8 h-8 text-amber-600" />
+                            <div className="w-16 h-16 mx-auto bg-gradient-to-br from-amber-100 to-amber-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-inner">
+                                <feature.icon className="w-8 h-8 text-amber-600 drop-shadow-sm" />
                             </div>
                             <h3 className="text-xl font-bold text-amber-950 mb-3">
                                 {feature.title}

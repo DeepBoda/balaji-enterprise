@@ -43,7 +43,7 @@ const products = [
 
 export default function Products() {
     return (
-        <section id="our-honey" className="py-24 bg-white relative overflow-hidden">
+        <section id="our-honey" className="py-16 bg-white relative overflow-hidden">
             {/* Decorative Background */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-amber-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 

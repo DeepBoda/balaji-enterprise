@@ -1,4 +1,4 @@
-import { Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -20,11 +20,12 @@ export default function Footer() {
                             Pure, raw, and ethically sourced wild honey. Delivering nature's finest nectar directly to your doorstep with uncompromising quality.
                         </p>
                         <div className="flex gap-4">
-                            {[Instagram, Phone, Mail].map((Icon, i) => (
-                                <div key={i} className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
-                                    <Icon size={18} />
-                                </div>
-                            ))}
+                            <a href="https://www.instagram.com/nature_honey_2018" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
+                                <Instagram size={18} />
+                            </a>
+                            <a href="tel:+919574155240" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
+                                <Phone size={18} />
+                            </a>
                         </div>
                     </div>
 
@@ -65,9 +66,16 @@ export default function Footer() {
                         <div>
                             <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Contact</h4>
                             <ul className="space-y-3 text-sm text-white/60">
-                                <li>@balaji.honey</li>
-                                <li>+91 98765 43210</li>
-                                <li>hello@balaji.com</li>
+                                <li>
+                                    <a href="https://www.instagram.com/nature_honey_2018" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">
+                                        @nature_honey_2018
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tel:+919574155240" className="hover:text-amber-500 transition-colors">
+                                        +91 95741 55240
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
