@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  title: "Balaji Enterprice | Premium Organic Honey",
+  title: "Balaji Enterprise | Premium Organic Honey",
   description: "Experience the finest raw honey, ethically harvested from wild hives.",
 };
 

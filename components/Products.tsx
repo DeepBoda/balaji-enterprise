@@ -11,7 +11,7 @@ const products = [
         name: "Wildflower Raw Honey",
         price: "₹350",
         rating: 5,
-        image: "/images/Gemini_Generated_Image_3wrlc73wrlc73wrl.png",
+        image: "/images/product_branded.png",
         badge: "Bestseller",
         featured: true,
     },
@@ -20,7 +20,7 @@ const products = [
         name: "Himalayan Forest Honey",
         price: "₹350",
         rating: 5,
-        image: "/images/Gemini_Generated_Image_4gb9lq4gb9lq4gb9.png",
+        image: "/images/product_branded.png",
         badge: "Trending",
     },
     {
@@ -28,7 +28,7 @@ const products = [
         name: "Spiced Honey Infusion",
         price: "₹350",
         rating: 4,
-        image: "/images/Gemini_Generated_Image_950ces950ces950c.png",
+        image: "/images/product_branded.png",
         badge: "Limited Edition",
     },
     {
@@ -36,7 +36,7 @@ const products = [
         name: "Pure Honeycomb Jar",
         price: "₹450",
         rating: 5,
-        image: "/images/Gemini_Generated_Image_cfl1o1cfl1o1cfl1.png",
+        image: "/images/product_branded.png",
         badge: "Premium",
     },
 ];
@@ -71,9 +71,9 @@ export default function Products() {
                             viewport={{ once: true }}
                             className="group relative bg-white rounded-3xl p-3 shadow-lg shadow-amber-900/5 hover:shadow-xl hover:shadow-amber-900/10 transition-all duration-500 border border-amber-100"
                         >
-                            {/* Image Area */}
+                            {/* Image Area - Compact Square */}
                             <div
-                                className="aspect-[4/5] bg-amber-50 rounded-2xl mb-4 relative overflow-hidden group-hover:scale-[0.98] transition-transform duration-500"
+                                className="aspect-square bg-amber-50 rounded-2xl mb-3 relative overflow-hidden group-hover:scale-[0.98] transition-transform duration-500"
                             >
                                 <Image
                                     src={product.image}
@@ -83,15 +83,15 @@ export default function Products() {
                                 />
 
                                 {product.badge && (
-                                    <span className="absolute top-3 left-3 bg-white/95 backdrop-blur text-amber-950 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
+                                    <span className="absolute top-3 left-3 bg-white/95 backdrop-blur text-amber-950 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
                                         {product.badge === 'Trending' && <TrendingUp className="w-3 h-3 text-amber-600" />}
                                         {product.badge}
                                     </span>
                                 )}
 
                                 {/* Quick Add Overlay */}
-                                <div className="absolute inset-x-4 bottom-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                                    <Button className="w-full bg-white/90 backdrop-blur text-amber-950 hover:bg-amber-500 hover:text-white shadow-lg">
+                                <div className="absolute inset-x-3 bottom-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                    <Button size="sm" className="w-full bg-white/90 backdrop-blur text-amber-950 hover:bg-amber-500 hover:text-white shadow-lg text-xs font-bold h-9">
                                         Add to Cart
                                     </Button>
                                 </div>

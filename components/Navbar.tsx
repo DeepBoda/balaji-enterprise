@@ -27,7 +27,7 @@ export default function Navbar() {
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-12">
                 {/* Logo */}
                 <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-2xl font-serif font-bold text-amber-900 tracking-tight">
-                    Balaji Enterprice
+                    Balaji Enterprise
                 </Link>
 
                 {/* Desktop Nav */}

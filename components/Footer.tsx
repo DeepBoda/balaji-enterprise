@@ -3,20 +3,20 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="bg-[#140D05] text-[#FDF6E3] pt-32 pb-0 relative overflow-hidden">
+        <footer className="bg-[#140D05] text-[#FDF6E3] pt-16 pb-0 relative overflow-hidden">
             {/* Crisp Top Border */}
             <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
 
-            <div className="container mx-auto px-4 md:px-6 relative z-10 mb-24">
-                <div className="grid md:grid-cols-12 gap-12 lg:gap-8 mb-24">
+            <div className="container mx-auto px-4 md:px-6 relative z-10 mb-16">
+                <div className="grid md:grid-cols-12 gap-12 lg:gap-8 mb-16">
                     {/* Brand - Spans 4 columns */}
-                    <div className="md:col-span-4 space-y-8">
+                    <div className="md:col-span-4 space-y-6">
                         <Link href="/" className="inline-block">
-                            <h3 className="text-3xl font-serif font-bold text-amber-500 tracking-tight leading-none">
+                            <h3 className="text-2xl font-serif font-bold text-amber-500 tracking-tight leading-none">
                                 Balaji Enterprise
                             </h3>
                         </Link>
-                        <p className="text-white/60 leading-relaxed max-w-sm text-base font-normal">
+                        <p className="text-white/60 leading-relaxed max-w-sm text-sm font-normal">
                             Pure, raw, and ethically sourced wild honey. Delivering nature's finest nectar directly to your doorstep with uncompromising quality.
                         </p>
                         <div className="flex gap-4">
@@ -35,8 +35,8 @@ export default function Footer() {
                     <div className="md:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8">
                         {/* Column 1 */}
                         <div>
-                            <h4 className="text-xs font-bold text-amber-500 uppercase tracking-[0.2em] mb-6">Explore</h4>
-                            <ul className="space-y-4">
+                            <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Explore</h4>
+                            <ul className="space-y-3">
                                 {["Shop", "Our Honey", "Process", "Wholesale"].map((item) => (
                                     <li key={item}>
                                         <a href="#" className="text-white/60 hover:text-white transition-colors duration-200 text-sm font-medium">
@@ -49,8 +49,8 @@ export default function Footer() {
 
                         {/* Column 2 */}
                         <div>
-                            <h4 className="text-xs font-bold text-amber-500 uppercase tracking-[0.2em] mb-6">Support</h4>
-                            <ul className="space-y-4">
+                            <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Support</h4>
+                            <ul className="space-y-3">
                                 {["Contact Us", "FAQ", "Shipping", "Returns"].map((item) => (
                                     <li key={item}>
                                         <a href="#" className="text-white/60 hover:text-white transition-colors duration-200 text-sm font-medium">
@@ -63,8 +63,8 @@ export default function Footer() {
 
                         {/* Column 3 */}
                         <div>
-                            <h4 className="text-xs font-bold text-amber-500 uppercase tracking-[0.2em] mb-6">Contact</h4>
-                            <ul className="space-y-4 text-sm text-white/60">
+                            <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Contact</h4>
+                            <ul className="space-y-3 text-sm text-white/60">
                                 <li>@balaji.honey</li>
                                 <li>+91 98765 43210</li>
                                 <li>hello@balaji.com</li>
@@ -75,7 +75,7 @@ export default function Footer() {
 
                 {/* Bottom Bar Details - Crisp Separation */}
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/40 text-xs tracking-wide pt-8 border-t border-white/5">
-                    <p>&copy; {new Date().getFullYear()} Balaji Enterprice. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Balaji Enterprise. All rights reserved.</p>
                     <div className="flex items-center gap-2">
                         <span>Designed by</span>
                         <span className="font-bold text-amber-500 tracking-wider">DEEP BODA</span>
@@ -83,9 +83,9 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* MASSIVE FOOTER TEXT - "NATURE HONEY" - High Visibility */}
-            <div className="w-full overflow-hidden leading-none select-none pointer-events-none pt-6">
-                <h1 className="text-[13.5vw] font-black text-center text-white opacity-10 tracking-tighter whitespace-nowrap leading-[0.75] translate-y-4">
+            {/* MASSIVE FOOTER TEXT - Adjusted for Mobile Safety and Visibility */}
+            <div className="w-full overflow-hidden leading-none select-none pointer-events-none pt-2 pb-4">
+                <h1 className="text-[10vw] font-black text-center text-white opacity-5 tracking-tighter whitespace-nowrap leading-none">
                     NATURE HONEY
                 </h1>
             </div>
