@@ -78,8 +78,11 @@ export default function Process() {
                 {/* Additional Classic Touch - Signature/Seal area */}
                 <Reveal delay={0.6} className="mt-24 text-center">
                     <div className="inline-block p-1 border-t border-b border-amber-900/10">
-                        <p className="font-serif italic text-2xl text-amber-900/80 px-8 py-4">
+                        <p className="font-serif italic text-2xl text-amber-900/80 px-8 py-4 relative inline-block">
                             &quot;Pureness you can taste in every drop.&quot;
+                            <svg className="absolute w-[80%] h-auto -bottom-2 left-1/2 -translate-x-1/2 -z-10 text-amber-500/20" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.00025 15.0002C30.5002 5.50024 50.0002 -3.49976 82.0002 9.00024C122 24.6252 165.5 13.5 198 2.00024" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                            </svg>
                         </p>
                     </div>
                 </Reveal>
