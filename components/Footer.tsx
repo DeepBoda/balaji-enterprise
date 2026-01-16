@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/ui/Reveal";
 import { Instagram, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 
@@ -11,22 +12,24 @@ export default function Footer() {
                 <div className="grid md:grid-cols-12 gap-12 lg:gap-8 mb-16">
                     {/* Brand - Spans 4 columns */}
                     <div className="md:col-span-4 space-y-6">
-                        <Link href="/" className="inline-block">
-                            <h3 className="text-2xl font-serif font-bold text-amber-500 tracking-tight leading-none">
-                                Balaji Enterprise
-                            </h3>
-                        </Link>
-                        <p className="text-white/60 leading-relaxed max-w-sm text-sm font-normal">
-                            Pure, raw, and ethically sourced wild honey. Delivering nature's finest nectar directly to your doorstep with uncompromising quality.
-                        </p>
-                        <div className="flex gap-4">
-                            <a href="https://www.instagram.com/nature_honey_2018" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
-                                <Instagram size={18} />
-                            </a>
-                            <a href="tel:+919574155240" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
-                                <Phone size={18} />
-                            </a>
-                        </div>
+                        <Reveal>
+                            <Link href="/" className="inline-block">
+                                <h3 className="text-2xl font-serif font-bold text-amber-500 tracking-tight leading-none">
+                                    Balaji Enterprise
+                                </h3>
+                            </Link>
+                            <p className="text-white/60 leading-relaxed max-w-sm text-sm font-normal mt-6 mb-6">
+                                Pure, raw, and ethically sourced wild honey. Delivering nature's finest nectar directly to your doorstep with uncompromising quality.
+                            </p>
+                            <div className="flex gap-4">
+                                <a href="https://www.instagram.com/nature_honey_2018" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
+                                    <Instagram size={18} />
+                                </a>
+                                <a href="tel:+919574155240" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
+                                    <Phone size={18} />
+                                </a>
+                            </div>
+                        </Reveal>
                     </div>
 
                     {/* Spacer */}
@@ -36,66 +39,76 @@ export default function Footer() {
                     <div className="md:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8">
                         {/* Column 1 */}
                         <div>
-                            <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Explore</h4>
-                            <ul className="space-y-3">
-                                {["Shop", "Our Honey", "Process", "Wholesale"].map((item) => (
-                                    <li key={item}>
-                                        <a href="#" className="text-white/60 hover:text-white transition-colors duration-200 text-sm font-medium">
-                                            {item}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
+                            <Reveal delay={0.2}>
+                                <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Explore</h4>
+                                <ul className="space-y-3">
+                                    {["Shop", "Our Honey", "Process", "Wholesale"].map((item) => (
+                                        <li key={item}>
+                                            <a href="#" className="text-white/60 hover:text-white transition-colors duration-200 text-sm font-medium">
+                                                {item}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </Reveal>
                         </div>
 
                         {/* Column 2 */}
                         <div>
-                            <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Support</h4>
-                            <ul className="space-y-3">
-                                {["Contact Us", "FAQ", "Shipping", "Returns"].map((item) => (
-                                    <li key={item}>
-                                        <a href="#" className="text-white/60 hover:text-white transition-colors duration-200 text-sm font-medium">
-                                            {item}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
+                            <Reveal delay={0.3}>
+                                <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Support</h4>
+                                <ul className="space-y-3">
+                                    {["Contact Us", "FAQ", "Shipping", "Returns"].map((item) => (
+                                        <li key={item}>
+                                            <a href="#" className="text-white/60 hover:text-white transition-colors duration-200 text-sm font-medium">
+                                                {item}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </Reveal>
                         </div>
 
                         {/* Column 3 */}
                         <div>
-                            <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Contact</h4>
-                            <ul className="space-y-3 text-sm text-white/60">
-                                <li>
-                                    <a href="https://www.instagram.com/nature_honey_2018" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">
-                                        @nature_honey_2018
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tel:+919574155240" className="hover:text-amber-500 transition-colors">
-                                        +91 95741 55240
-                                    </a>
-                                </li>
-                            </ul>
+                            <Reveal delay={0.4}>
+                                <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Contact</h4>
+                                <ul className="space-y-3 text-sm text-white/60">
+                                    <li>
+                                        <a href="https://www.instagram.com/nature_honey_2018" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">
+                                            @nature_honey_2018
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="tel:+919574155240" className="hover:text-amber-500 transition-colors">
+                                            +91 95741 55240
+                                        </a>
+                                    </li>
+                                </ul>
+                            </Reveal>
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Bar Details - Crisp Separation */}
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/40 text-xs tracking-wide pt-8 border-t border-white/5">
-                    <p>&copy; {new Date().getFullYear()} Balaji Enterprise. All rights reserved.</p>
-                    <div className="flex items-center gap-2">
-                        <span>Designed by</span>
-                        <span className="font-bold text-amber-500 tracking-wider">DEEP BODA</span>
+                <Reveal delay={0.5} width="100%">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/40 text-xs tracking-wide pt-8 border-t border-white/5">
+                        <p>&copy; {new Date().getFullYear()} Balaji Enterprise. All rights reserved.</p>
+                        <div className="flex items-center gap-2">
+                            <span>Designed by</span>
+                            <span className="font-bold text-amber-500 tracking-wider">DEEP BODA</span>
+                        </div>
                     </div>
-                </div>
+                </Reveal>
             </div>
 
             {/* MASSIVE FOOTER TEXT - Adjusted for Mobile Safety and Visibility */}
             <div className="w-full overflow-hidden leading-none select-none pointer-events-none pt-2 pb-4">
-                <h1 className="text-[10vw] font-black text-center text-white opacity-5 tracking-tighter whitespace-nowrap leading-none">
-                    NATURE HONEY
-                </h1>
+                <Reveal delay={0.6} y={50} blur={false}>
+                    <h1 className="text-[10vw] font-black text-center text-white opacity-5 tracking-tighter whitespace-nowrap leading-none">
+                        NATURE HONEY
+                    </h1>
+                </Reveal>
             </div>
         </footer>
     );

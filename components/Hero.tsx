@@ -94,7 +94,17 @@ export default function Hero() {
                         className="relative w-full max-w-[420px] aspect-square"
                     >
                         {/* Main Image Container */}
-                        <div className="relative z-10 w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl shadow-amber-900/10 border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-700">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
+                            animate={{ opacity: 1, scale: 1, rotate: [2, 0, 2], y: [0, -20, 0] }}
+                            transition={{
+                                opacity: { duration: 0.8 },
+                                scale: { duration: 0.8 },
+                                rotate: { duration: 10, repeat: Infinity, ease: "easeInOut" },
+                                y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+                            }}
+                            className="relative z-10 w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl shadow-amber-900/10 border-4 border-white"
+                        >
                             <Image
                                 src="/images/hero_branded.png"
                                 alt="Premium Nature Honey Jar"
@@ -102,7 +112,7 @@ export default function Hero() {
                                 className="object-cover"
                                 priority
                             />
-                        </div>
+                        </motion.div>
 
                         {/* Floating Badge 1 - Repositioned */}
                         <motion.div
