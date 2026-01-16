@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
 import Grain from "@/components/Grain";
+import { CartProvider } from "@/context/CartContext";
+import CartDrawer from "@/components/CartDrawer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -28,10 +30,13 @@ export default function RootLayout({
           playfair.variable
         )}
       >
-        {/* <Grain /> */}
-        <Preloader />
-        <SmoothScroll />
-        {children}
+        <CartProvider>
+          {/* <Grain /> */}
+          <Preloader />
+          <SmoothScroll />
+          {children}
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

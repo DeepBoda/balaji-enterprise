@@ -20,7 +20,7 @@ export default function Home() {
       <Products />
       <Process />
       <Testimonials />
-      <Newsletter />
+
       <Footer />
     </main>
   );

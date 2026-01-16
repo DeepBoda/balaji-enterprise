@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ShoppingBag, Star, TrendingUp } from "lucide-react";
 import Image from "next/image";
+import { useCart } from "@/context/CartContext";
 
 const products = [
     {
@@ -42,6 +43,17 @@ const products = [
 ];
 
 export default function Products() {
+    const { addToCart } = useCart();
+
+    const handleAddToCart = (product: typeof products[0]) => {
+        addToCart({
+            id: product.id,
+            name: product.name,
+            price: parseInt(product.price.replace("₹", "")), // Parse price
+            image: product.image,
+        });
+    };
+
     return (
         <section id="our-honey" className="py-16 bg-white relative overflow-hidden">
             {/* Decorative Background */}
@@ -91,7 +103,7 @@ export default function Products() {
 
                                 {/* Quick Add Overlay */}
                                 <div className="absolute inset-x-3 bottom-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                                    <Button size="sm" className="w-full bg-white/90 backdrop-blur text-amber-950 hover:bg-amber-500 hover:text-white shadow-lg text-xs font-bold h-9">
+                                    <Button onClick={() => handleAddToCart(product)} size="sm" className="w-full bg-white/90 backdrop-blur text-amber-950 hover:bg-amber-500 hover:text-white shadow-lg text-xs font-bold h-9">
                                         Add to Cart
                                     </Button>
                                 </div>
@@ -116,6 +128,7 @@ export default function Products() {
                                         {product.price}
                                     </span>
                                     <Button
+                                        onClick={() => handleAddToCart(product)}
                                         size="icon"
                                         variant="ghost"
                                         className="rounded-full w-8 h-8 text-amber-400 hover:text-amber-600 hover:bg-amber-50"
