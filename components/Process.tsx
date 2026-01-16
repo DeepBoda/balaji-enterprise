@@ -37,7 +37,12 @@ export default function Process() {
                             Our Method
                         </span>
                         <h2 className="text-4xl md:text-6xl font-serif font-bold text-amber-950 mb-6">
-                            From Hive to Home
+                            From <span className="relative inline-block text-amber-500 italic">
+                                Hive
+                                <svg className="absolute w-[120%] h-auto -bottom-4 left-0 -z-10 text-amber-500/30" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.00025 15.0002C30.5002 5.50024 50.0002 -3.49976 82.0002 9.00024C122 24.6252 165.5 13.5 198 2.00024" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                                </svg>
+                            </span> to Home
                         </h2>
                         <p className="text-amber-900/60 text-lg leading-relaxed">
                             No spam, ever. Just nature&apos;s purity. We simply steward it from nature to you,

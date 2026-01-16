@@ -33,7 +33,12 @@ export default function Testimonials() {
                         Community Love
                     </span>
                     <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mt-3">
-                        What Our Customers Say
+                        What Our <span className="relative inline-block text-amber-500 italic">
+                            Customers
+                            <svg className="absolute w-[120%] h-auto -bottom-4 left-0 -z-10 text-amber-500/30" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.00025 15.0002C30.5002 5.50024 50.0002 -3.49976 82.0002 9.00024C122 24.6252 165.5 13.5 198 2.00024" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                            </svg>
+                        </span> Say
                     </h2>
                 </div>
 

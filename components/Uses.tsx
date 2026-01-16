@@ -26,7 +26,12 @@ export default function Uses() {
                     </span>
                     <h2 className="text-4xl md:text-6xl font-serif font-bold text-amber-950 leading-tight">
                         More Than Just <br />
-                        <span className="text-amber-600">Sweetness.</span>
+                        <span className="relative inline-block text-amber-500 italic">
+                            Sweetness.
+                            <svg className="absolute w-[120%] h-auto -bottom-4 left-0 -z-10 text-amber-500/30" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.00025 15.0002C30.5002 5.50024 50.0002 -3.49976 82.0002 9.00024C122 24.6252 165.5 13.5 198 2.00024" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                            </svg>
+                        </span>
                     </h2>
                     <p className="text-amber-900/70 text-lg leading-relaxed max-w-md">
                         From your morning lemon water to a midnight face mask, our honey is a versatile superfood that enhances your wellness routine.
