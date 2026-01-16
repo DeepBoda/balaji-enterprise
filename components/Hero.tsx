@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Star, ShieldCheck, Truck } from "lucide-react";
+import { Star, ShieldCheck, Truck } from "lucide-react";
 import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
 
@@ -29,7 +29,7 @@ export default function Hero() {
                             </span>
                         </div>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-amber-950 leading-[1.1] tracking-tight">
-                            Nature's Golden <br />
+                            Nature&apos;s Golden <br />
                             <span className="text-amber-600 italic relative">
                                 Elixir
                             </span>

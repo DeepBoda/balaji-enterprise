@@ -53,7 +53,7 @@ export default function Testimonials() {
                                 ))}
                             </div>
                             <p className="text-amber-900/80 text-lg mb-8 italic leading-relaxed">
-                                "{review.content}"
+                                &quot;{review.content}&quot;
                             </p>
 
                             <div className="flex items-center gap-4">

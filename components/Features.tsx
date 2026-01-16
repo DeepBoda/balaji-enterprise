@@ -39,7 +39,7 @@ export default function Features() {
                         Why Choose Balaji?
                     </h2>
                     <p className="text-amber-900/70 text-lg">
-                        We don't just sell honey; we deliver a promise of purity.
+                        We don&apos;t just sell honey; we deliver a promise of purity.
                     </p>
                 </div>
 

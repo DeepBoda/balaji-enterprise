@@ -54,7 +54,7 @@ export default function Products() {
                         Fresh Stocks
                     </span>
                     <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mt-4 mb-4">
-                        Nature's Sweetest Gift
+                        Nature&apos;s Sweetest Gift
                     </h2>
                     <p className="text-amber-900/60 text-lg">
                         Straight from the hive, packed with purity.

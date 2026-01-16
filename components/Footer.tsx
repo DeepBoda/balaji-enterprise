@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/ui/Reveal";
-import { Instagram, Phone, MapPin } from "lucide-react";
+import { Instagram, Phone } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -19,7 +19,7 @@ export default function Footer() {
                                 </h3>
                             </Link>
                             <p className="text-white/60 leading-relaxed max-w-sm text-sm font-normal mt-6 mb-6">
-                                Pure, raw, and ethically sourced wild honey. Delivering nature's finest nectar directly to your doorstep with uncompromising quality.
+                                Pure, raw, and ethically sourced wild honey. Delivering nature&apos;s finest nectar directly to your doorstep with uncompromising quality.
                             </p>
                             <div className="flex gap-4">
                                 <a href="https://www.instagram.com/nature_honey_2018" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
@@ -102,10 +102,10 @@ export default function Footer() {
                 </Reveal>
             </div>
 
-            {/* MASSIVE FOOTER TEXT - Adjusted for Mobile Safety and Visibility */}
-            <div className="w-full overflow-hidden leading-none select-none pointer-events-none pt-2 pb-4">
-                <Reveal delay={0.6} y={50} blur={false}>
-                    <h1 className="text-[10vw] font-black text-center text-white opacity-5 tracking-tighter whitespace-nowrap leading-none">
+            {/* MASSIVE FOOTER TEXT - GEN Z / LUXURY ENDING */}
+            <div className="w-full relative pt-12 pb-12 flex justify-center items-center overflow-hidden">
+                <Reveal delay={0.6} y={50} blur={false} width="100%">
+                    <h1 className="text-[13vw] md:text-[13.5vw] font-serif font-black text-transparent opacity-20 tracking-tight whitespace-nowrap leading-none text-center w-full select-none" style={{ WebkitTextStroke: "1px #FDF6E3" }}>
                         NATURE HONEY
                     </h1>
                 </Reveal>

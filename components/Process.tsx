@@ -40,7 +40,7 @@ export default function Process() {
                             From Hive to Home
                         </h2>
                         <p className="text-amber-900/60 text-lg leading-relaxed">
-                            We don't manufacture honey. We simply steward it from nature to you,
+                            No spam, ever. Just nature&apos;s purity. We simply steward it from nature to you,
                             ensuring nothing is added and nothing is taken away.
                         </p>
                     </Reveal>
@@ -74,7 +74,7 @@ export default function Process() {
                 <Reveal delay={0.6} className="mt-24 text-center">
                     <div className="inline-block p-1 border-t border-b border-amber-900/10">
                         <p className="font-serif italic text-2xl text-amber-900/80 px-8 py-4">
-                            "Pureness you can taste in every drop."
+                            &quot;Pureness you can taste in every drop.&quot;
                         </p>
                     </div>
                 </Reveal>
