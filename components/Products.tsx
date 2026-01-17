@@ -4,7 +4,11 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ShoppingBag, Star, TrendingUp } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { toast } from "@/components/ui/Toast";
+import { scrollReveal, hoverVariants } from "@/lib/motion";
+import { useState } from "react";
 
 const products = [
     {
@@ -44,25 +48,41 @@ const products = [
 
 export default function Products() {
     const { addToCart } = useCart();
+    const [addingToCart, setAddingToCart] = useState<number | null>(null);
 
-    const handleAddToCart = (product: typeof products[0]) => {
+    const handleAddToCart = async (product: typeof products[0], e: React.MouseEvent) => {
+        e.preventDefault(); // Prevent navigation
+        e.stopPropagation();
+
+        setAddingToCart(product.id);
+
         addToCart({
             id: product.id,
             name: product.name,
-            price: parseInt(product.price.replace("₹", "")), // Parse price
+            price: parseInt(product.price.replace("₹", "")),
             image: product.image,
         });
+
+        // Show success toast
+        toast.success(`${product.name} added to cart!`, 2000);
+
+        // Reset animation state
+        setTimeout(() => setAddingToCart(null), 600);
     };
 
     return (
         <section id="our-honey" className="py-16 bg-white relative overflow-hidden">
             {/* Decorative Background */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-
+            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-60" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-100 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 opacity-40" />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <div className="text-center max-w-2xl mx-auto mb-16">
-                    <span className="text-amber-600 font-bold tracking-wider uppercase text-xs border border-amber-200 px-3 py-1 rounded-full bg-amber-50">
+                {/* Header */}
+                <motion.div
+                    className="text-center max-w-2xl mx-auto mb-16"
+                    {...scrollReveal.default}
+                >
+                    <span className="text-amber-600 font-bold tracking-wider uppercase text-xs border border-amber-200 px-3 py-1 rounded-full bg-amber-50 inline-block">
                         Fresh Stocks
                     </span>
                     <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mt-4 mb-4">
@@ -76,81 +96,156 @@ export default function Products() {
                     <p className="text-amber-900/60 text-lg">
                         Straight from the hive, packed with purity.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {/* Product Grid */}
+                <motion.div
+                    className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ staggerChildren: 0.1 }}
+                >
                     {products.map((product, idx) => (
                         <motion.div
                             key={product.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: idx * 0.1 }}
-                            viewport={{ once: true }}
-                            className="group relative bg-white rounded-3xl p-3 shadow-lg shadow-amber-900/5 hover:shadow-xl hover:shadow-amber-900/10 transition-all duration-500 border border-amber-100"
+                            variants={{
+                                initial: { opacity: 0, y: 40 },
+                                animate: { opacity: 1, y: 0 },
+                            }}
+                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            {/* Image Area - Compact Square */}
-                            <div
-                                className="aspect-square bg-amber-50 rounded-2xl mb-3 relative overflow-hidden group-hover:scale-[0.98] transition-transform duration-500"
-                            >
-                                <Image
-                                    src={product.image}
-                                    alt={product.name}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-
-                                {product.badge && (
-                                    <span className="absolute top-3 left-3 bg-white/95 backdrop-blur text-amber-950 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
-                                        {product.badge === 'Trending' && <TrendingUp className="w-3 h-3 text-amber-600" />}
-                                        {product.badge}
-                                    </span>
-                                )}
-
-                                {/* Quick Add Overlay */}
-                                <div className="absolute inset-x-3 bottom-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                                    <Button onClick={() => handleAddToCart(product)} size="sm" className="w-full bg-white/90 backdrop-blur text-amber-950 hover:bg-amber-500 hover:text-white shadow-lg text-xs font-bold h-9">
-                                        Add to Cart
-                                    </Button>
-                                </div>
-                            </div>
-
-                            {/* Content */}
-                            <div className="px-2 pb-2">
-                                <div className="flex items-center justify-between mb-2">
-                                    <span className="text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">500g Jar</span>
-                                    <div className="flex items-center gap-1">
-                                        <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                                        <span className="text-xs font-medium text-amber-900">{product.rating}.0</span>
-                                    </div>
-                                </div>
-
-                                <h3 className="text-lg font-bold text-amber-950 mb-1 leading-tight group-hover:text-amber-600 transition-colors">
-                                    {product.name}
-                                </h3>
-
-                                <div className="flex items-center justify-between mt-3">
-                                    <span className="text-xl font-serif font-bold text-amber-900">
-                                        {product.price}
-                                    </span>
-                                    <Button
-                                        onClick={() => handleAddToCart(product)}
-                                        size="icon"
-                                        variant="ghost"
-                                        className="rounded-full w-8 h-8 text-amber-400 hover:text-amber-600 hover:bg-amber-50"
+                            <Link href={`/product/${product.id}`}>
+                                <motion.div
+                                    initial="rest"
+                                    whileHover="hover"
+                                    animate="rest"
+                                    className="group relative bg-white rounded-3xl p-3 shadow-lg shadow-amber-900/5 border border-amber-100 cursor-pointer"
+                                >
+                                    <motion.div
+                                        variants={hoverVariants.cardHover}
+                                        className="relative"
                                     >
-                                        <ShoppingBag className="w-4 h-4" />
-                                    </Button>
-                                </div>
-                            </div>
+                                        {/* Image Area */}
+                                        <div className="aspect-square bg-amber-50 rounded-2xl mb-3 relative overflow-hidden">
+                                            <Image
+                                                src={product.image}
+                                                alt={product.name}
+                                                fill
+                                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            />
+
+                                            {product.badge && (
+                                                <motion.span
+                                                    className="absolute top-3 left-3 bg-white/95 backdrop-blur text-amber-950 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1"
+                                                    initial={{ opacity: 0, scale: 0.8 }}
+                                                    animate={{ opacity: 1, scale: 1 }}
+                                                    transition={{ delay: idx * 0.1 + 0.3 }}
+                                                >
+                                                    {product.badge === 'Trending' && <TrendingUp className="w-3 h-3 text-amber-600" />}
+                                                    {product.badge}
+                                                </motion.span>
+                                            )}
+
+                                            {/* Quick Add Overlay */}
+                                            <motion.div
+                                                className="absolute inset-x-3 bottom-3"
+                                                initial={{ opacity: 0, y: 20 }}
+                                                whileHover={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                            >
+                                                <Button
+                                                    onClick={(e) => handleAddToCart(product, e)}
+                                                    size="sm"
+                                                    className="w-full bg-white/90 backdrop-blur text-amber-950 hover:bg-amber-500 hover:text-white shadow-lg text-xs font-bold h-9 relative overflow-hidden group/btn"
+                                                    disabled={addingToCart === product.id}
+                                                >
+                                                    {addingToCart === product.id ? (
+                                                        <motion.span
+                                                            initial={{ scale: 0 }}
+                                                            animate={{ scale: 1 }}
+                                                            className="flex items-center gap-2"
+                                                        >
+                                                            <motion.div
+                                                                animate={{ rotate: 360 }}
+                                                                transition={{ duration: 0.6, ease: "linear" }}
+                                                            >
+                                                                ✓
+                                                            </motion.div>
+                                                            Added!
+                                                        </motion.span>
+                                                    ) : (
+                                                        "Add to Cart"
+                                                    )}
+                                                </Button>
+                                            </motion.div>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="px-2 pb-2">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <span className="text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">500g Jar</span>
+                                                <div className="flex items-center gap-1">
+                                                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                                                    <span className="text-xs font-medium text-amber-900">{product.rating}.0</span>
+                                                </div>
+                                            </div>
+
+                                            <h3 className="text-lg font-bold text-amber-950 mb-1 leading-tight group-hover:text-amber-600 transition-colors">
+                                                {product.name}
+                                            </h3>
+
+                                            <div className="flex items-center justify-between mt-3">
+                                                <span className="text-xl font-serif font-bold text-amber-900">
+                                                    {product.price}
+                                                </span>
+                                                <motion.div
+                                                    whileHover={{ scale: 1.1, rotate: 5 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                >
+                                                    <Button
+                                                        onClick={(e) => handleAddToCart(product, e)}
+                                                        size="icon"
+                                                        variant="ghost"
+                                                        className="rounded-full w-8 h-8 text-amber-400 hover:text-amber-600 hover:bg-amber-50"
+                                                    >
+                                                        <ShoppingBag className="w-4 h-4" />
+                                                    </Button>
+                                                </motion.div>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                </motion.div>
+                            </Link>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
-                <div className="mt-16 text-center">
-                    <Button variant="outline" size="lg" className="border-amber-200 text-amber-900 hover:bg-amber-50 px-8 rounded-full">
-                        View All Products
-                    </Button>
-                </div>
+                {/* View All Button */}
+                <motion.div
+                    className="mt-16 text-center"
+                    {...scrollReveal.fast}
+                >
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            className="border-amber-200 text-amber-900 hover:bg-amber-50 px-8 rounded-full group"
+                        >
+                            View All Products
+                            <motion.span
+                                className="inline-block ml-2"
+                                animate={{ x: [0, 5, 0] }}
+                                transition={{ duration: 1.5, repeat: Infinity }}
+                            >
+                                →
+                            </motion.span>
+                        </Button>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );

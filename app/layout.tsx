@@ -7,6 +7,7 @@ import Preloader from "@/components/Preloader";
 import Grain from "@/components/Grain";
 import { CartProvider } from "@/context/CartContext";
 import CartDrawer from "@/components/CartDrawer";
+import { ToastProvider } from "@/components/ui/ToastProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -31,11 +32,13 @@ export default function RootLayout({
         )}
       >
         <CartProvider>
-          {/* <Grain /> */}
-          <Preloader />
-          <SmoothScroll />
-          {children}
-          <CartDrawer />
+          <ToastProvider>
+            {/* <Grain /> */}
+            <Preloader />
+            <SmoothScroll />
+            {children}
+            <CartDrawer />
+          </ToastProvider>
         </CartProvider>
       </body>
     </html>
