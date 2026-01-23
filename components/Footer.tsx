@@ -42,11 +42,16 @@ export default function Footer() {
                             <Reveal delay={0.2}>
                                 <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Explore</h4>
                                 <ul className="space-y-3">
-                                    {["Shop", "Our Honey", "Process", "Wholesale"].map((item) => (
-                                        <li key={item}>
-                                            <a href="#" className="text-white/60 hover:text-white transition-colors duration-200 text-sm font-medium">
-                                                {item}
-                                            </a>
+                                    {[
+                                        { name: "Shop", href: "/products" },
+                                        { name: "Our Honey", href: "/products" },
+                                        { name: "Process", href: "/about" },
+                                        { name: "Wholesale", href: "/contact" }
+                                    ].map((item) => (
+                                        <li key={item.name}>
+                                            <Link href={item.href} className="text-white/60 hover:text-white transition-colors duration-200 text-sm font-medium">
+                                                {item.name}
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
@@ -58,11 +63,16 @@ export default function Footer() {
                             <Reveal delay={0.3}>
                                 <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Support</h4>
                                 <ul className="space-y-3">
-                                    {["Contact Us", "FAQ", "Shipping", "Returns"].map((item) => (
-                                        <li key={item}>
-                                            <a href="#" className="text-white/60 hover:text-white transition-colors duration-200 text-sm font-medium">
-                                                {item}
-                                            </a>
+                                    {[
+                                        { name: "Contact Us", href: "/contact" },
+                                        { name: "FAQ", href: "/contact" },
+                                        { name: "Shipping", href: "/policies" },
+                                        { name: "Returns", href: "/policies" }
+                                    ].map((item) => (
+                                        <li key={item.name}>
+                                            <Link href={item.href} className="text-white/60 hover:text-white transition-colors duration-200 text-sm font-medium">
+                                                {item.name}
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>

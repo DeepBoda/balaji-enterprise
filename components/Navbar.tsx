@@ -9,9 +9,12 @@ import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { AnimatePresence } from "framer-motion";
 
+import { usePathname } from "next/navigation";
+
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const { scrollY } = useScroll();
+    const pathname = usePathname();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         setIsScrolled(latest > 50);
@@ -34,15 +37,27 @@ export default function Navbar() {
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
-                    {["Home", "Our Honey", "Process", "Contact"].map((item) => (
-                        <a
-                            key={item}
-                            href={`#${item.toLowerCase().replace(" ", "-")}`}
-                            className="text-sm font-medium text-honey-900 hover:text-honey-600 transition-colors relative group"
+                    {[
+                        { name: "Home", path: "/" },
+                        { name: "Shop", path: "/products" },
+                        { name: "Our Story", path: "/about" },
+                        { name: "Rituals", path: "/services" },
+                        { name: "Contact", path: "/contact" }
+                    ].map((item) => (
+                        <Link
+                            key={item.name}
+                            href={item.path}
+                            className={cn(
+                                "text-sm font-medium transition-colors relative group",
+                                pathname === item.path ? "text-amber-600" : "text-amber-900/80 hover:text-amber-600"
+                            )}
                         >
-                            {item}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-honey-400 transition-all group-hover:w-full" />
-                        </a>
+                            {item.name}
+                            <span className={cn(
+                                "absolute -bottom-1 left-0 h-0.5 bg-amber-400 transition-all duration-300",
+                                pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
+                            )} />
+                        </Link>
                     ))}
                 </div>
 

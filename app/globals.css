@@ -69,9 +69,18 @@ body {
   z-index: 1;
 }
 
-/* Smooth Scroll */
+/* Smooth Scroll & Hide Scrollbar */
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -219,6 +219,7 @@ export default function Products() {
                                         </motion.div>
                                     </motion.div>
                                 </Link>
+                            </TiltCard>
                         </motion.div>
                     ))}
                 </motion.div>
