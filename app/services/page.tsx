@@ -4,7 +4,6 @@ import Uses from "@/components/Uses";
 import Recipes from "@/components/Recipes";
 import Ayurveda from "@/components/Ayurveda";
 import Footer from "@/components/Footer";
-import FooterSpacer from "@/components/ui/FooterSpacer";
 
 export default function ServicesPage() {
     return (
@@ -18,8 +17,8 @@ export default function ServicesPage() {
                 />
                 <Recipes />
                 <Ayurveda />
+                <Ayurveda />
                 <Uses />
-                <FooterSpacer />
             </main>
             <Footer />
         </>

@@ -42,7 +42,6 @@ export default function RootLayout({
             <SmoothScroll />
             {children}
             <CartDrawer />
-            <BackToTop />
           </ToastProvider>
         </CartProvider>
       </body>

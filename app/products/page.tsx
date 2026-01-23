@@ -3,7 +3,6 @@ import PageHero from "@/components/PageHero";
 import Products from "@/components/Products";
 import Purity from "@/components/Purity";
 import Footer from "@/components/Footer";
-import FooterSpacer from "@/components/ui/FooterSpacer";
 
 export default function ProductsPage() {
     return (
@@ -16,8 +15,8 @@ export default function ProductsPage() {
                     image="https://images.unsplash.com/photo-1558583055-d7ac00b1adca?q=80&w=1974&auto=format&fit=crop"
                 />
                 <Products />
+                <Products />
                 <Purity />
-                <FooterSpacer />
             </main>
             <Footer />
         </>

@@ -26,7 +26,7 @@ export default function PageHero({ title, subtitle, image, overlayOpacity = 0.4 
         <section ref={ref} className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
             {/* Parallax Background */}
             <motion.div
-                style={{ y, scale }}
+                style={{ y, scale, willChange: "transform" }}
                 className="absolute inset-0 z-0"
             >
                 <div className="relative w-full h-full">

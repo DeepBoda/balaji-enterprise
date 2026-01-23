@@ -1,10 +1,8 @@
 import Navbar from "@/components/Navbar";
 import PageHero from "@/components/PageHero";
-import Newsletter from "@/components/Newsletter";
 import ContactMap from "@/components/ContactMap";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import FooterSpacer from "@/components/ui/FooterSpacer";
 
 export default function ContactPage() {
     return (
@@ -33,8 +31,8 @@ export default function ContactPage() {
                     </div>
                 </div>
 
-                <Newsletter />
-                <FooterSpacer />
+                <ContactMap />
+                <FAQ />
             </main>
             <Footer />
         </>

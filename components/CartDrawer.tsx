@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useSpring, useTransform } from "framer-motion"
 import { X, Plus, Minus, Trash2, ShoppingBag, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { variants, hoverVariants } from "@/lib/motion";
+import { variants } from "@/lib/motion";
 import { useEffect } from "react";
 
 function AnimatedNumber({ value }: { value: number }) {

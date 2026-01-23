@@ -30,9 +30,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const [isMounted, setIsMounted] = useState(false);
 
     // Load from LocalStorage
+    // Load from LocalStorage
     useEffect(() => {
         setIsMounted(true);
-        const saved = localStorage.getItem("balaji_cart");
+        const saved = typeof window !== 'undefined' ? localStorage.getItem("balaji_cart") : null;
         if (saved) {
             try {
                 setItems(JSON.parse(saved));

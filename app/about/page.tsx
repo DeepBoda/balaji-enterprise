@@ -3,7 +3,6 @@ import PageHero from "@/components/PageHero";
 import Story from "@/components/Story";
 import Process from "@/components/Process";
 import Footer from "@/components/Footer";
-import FooterSpacer from "@/components/ui/FooterSpacer";
 
 export default function AboutPage() {
     return (
@@ -16,8 +15,8 @@ export default function AboutPage() {
                     image="https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=2080&auto=format&fit=crop"
                 />
                 <Story />
+                <Story />
                 <Process />
-                <FooterSpacer />
             </main>
             <Footer />
         </>

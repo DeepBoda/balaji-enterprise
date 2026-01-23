@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingBag, Menu, User } from "lucide-react";
+import { ShoppingBag, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
@@ -63,11 +63,6 @@ export default function Navbar() {
 
                 {/* Actions */}
                 <div className="flex items-center gap-4">
-                    <Link href="/dashboard">
-                        <Button variant="ghost" size="icon" className="text-honey-900 hover:bg-honey-50">
-                            <User className="w-5 h-5" />
-                        </Button>
-                    </Link>
                     <CartButton />
                     <Button variant="ghost" size="icon" className="md:hidden text-honey-900">
                         <Menu className="w-5 h-5" />

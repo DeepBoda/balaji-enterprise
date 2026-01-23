@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer id="site-footer" className="fixed bottom-0 left-0 w-full bg-[#140D05] text-[#FDF6E3] pt-16 pb-0 overflow-hidden -z-10">
+        <footer id="site-footer" className="relative w-full bg-[#140D05] text-[#FDF6E3] pt-16 pb-0 overflow-hidden z-20">
             {/* Crisp Top Border */}
             <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
 

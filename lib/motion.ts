@@ -241,7 +241,7 @@ export const beeFlight = (duration: number, delay: number = 0) => ({
 });
 
 // Accessibility: Respect reduced motion preference
-export const respectReducedMotion = (animation: any) => {
+export const respectReducedMotion = (animation: Record<string, unknown>) => {
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         return {
             ...animation,
