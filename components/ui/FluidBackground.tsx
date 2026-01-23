@@ -20,18 +20,18 @@ export default function FluidBackground() {
                 }}
             />
 
-            {/* 2. Floating Ambient Orbs (The "Honey Mist") */}
+            {/* 2. Floating Ambient Orbs (The "Honey Mist") - Optimized Blur */}
             <motion.div
                 style={{ y: y1 }}
-                className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-amber-300/10 rounded-full blur-[120px]"
-                animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-amber-300/10 rounded-full blur-[60px]"
+                animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.4, 0.3] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
             />
 
             <motion.div
                 style={{ y: y2 }}
-                className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-orange-300/10 rounded-full blur-[100px]"
-                animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
+                className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-orange-300/10 rounded-full blur-[50px]"
+                animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
                 transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             />
 

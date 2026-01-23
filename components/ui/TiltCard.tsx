@@ -47,28 +47,29 @@ export default function TiltCard({ children, className }: { children: React.Reac
             ref={ref}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            rotateX,
-            rotateY,
-            transformStyle: "preserve-3d",
-                willChange: "transform", // Hint browser for calc
+            style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d",
+                willChange: "transform",
             }}
-className = {`relative transform-gpu transition-all duration-200 ease-out ${className}`}
+            className={`relative transform-gpu transition-all duration-200 ease-out ${className}`}
         >
-    <div
-        style={{ transform: "translateZ(50px)" }}
-        className="relative z-10"
-    >
-        {children}
-    </div>
+            <div
+                style={{ transform: "translateZ(50px)" }}
+                className="relative z-10"
+            >
+                {children}
+            </div>
 
-{/* Holographic Shine Layer */ }
-<motion.div
-    className="absolute inset-0 z-20 pointer-events-none rounded-xl"
-    style={{
-        background: `radial-gradient(circle at ${shineX} ${shineY}, rgba(255,255,255,0.4), transparent 50%)`,
-        mixBlendMode: "overlay",
-    }}
-/>
+            {/* Holographic Shine Layer */}
+            <motion.div
+                className="absolute inset-0 z-20 pointer-events-none rounded-xl"
+                style={{
+                    background: `radial-gradient(circle at ${shineX} ${shineY}, rgba(255,255,255,0.4), transparent 50%)`,
+                    mixBlendMode: "overlay",
+                }}
+            />
         </motion.div >
     );
 }

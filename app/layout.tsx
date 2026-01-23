@@ -4,7 +4,6 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
-import Grain from "@/components/Grain";
 import { CartProvider } from "@/context/CartContext";
 import CartDrawer from "@/components/CartDrawer";
 import { ToastProvider } from "@/components/ui/ToastProvider";
