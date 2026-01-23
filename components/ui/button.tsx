@@ -8,15 +8,16 @@ const buttonVariants = cva(
     {
         variants: {
             variant: {
-                default: "bg-honey-500 text-white hover:bg-honey-600 shadow-lg shadow-honey-500/20",
+                default: "bg-gradient-to-b from-amber-400 to-amber-600 text-white shadow-[0_2px_10px_rgba(245,158,11,0.5),inset_0_1px_0_rgba(255,255,255,0.3)] hover:from-amber-500 hover:to-amber-700 hover:shadow-[0_5px_20px_rgba(245,158,11,0.6),inset_0_1px_0_rgba(255,255,255,0.3)] hover:-translate-y-0.5 transition-all duration-300",
+                jewel: "bg-white/40 backdrop-blur-md border border-white/60 text-amber-900 shadow-[0_4px_20px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.8)] hover:bg-white/60 hover:shadow-[0_8px_25px_rgba(251,191,36,0.2),inset_0_1px_0_rgba(255,255,255,0.9)] hover:scale-105 transition-all duration-300",
                 destructive:
                     "bg-red-500 text-destructive-foreground hover:bg-red-500/90",
                 outline:
-                    "border border-honey-200 bg-transparent hover:bg-honey-50 text-honey-900",
+                    "border border-amber-200 bg-transparent hover:bg-amber-50 text-amber-900",
                 secondary:
-                    "bg-honey-100 text-honey-900 hover:bg-honey-200",
-                ghost: "hover:bg-honey-50 text-honey-900",
-                link: "text-honey-900 underline-offset-4 hover:underline",
+                    "bg-amber-100 text-amber-900 hover:bg-amber-200",
+                ghost: "hover:bg-amber-50/50 text-amber-900 hover:text-amber-700",
+                link: "text-amber-900 underline-offset-4 hover:underline",
             },
             size: {
                 default: "h-11 px-6 py-2",

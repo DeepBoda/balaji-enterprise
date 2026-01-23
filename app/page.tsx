@@ -8,20 +8,25 @@ import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import Marquee from "@/components/Marquee";
 import Uses from "@/components/Uses";
+import FooterSpacer from "@/components/ui/FooterSpacer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FFFBF0]">
-      <Navbar />
-      <Hero />
-      <Marquee />
-      <Features />
-      <Uses />
-      <Products />
-      <Process />
-      <Testimonials />
+    <>
+      <main className="relative z-10 bg-[#FFFBF0] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+        <Navbar />
+        <Hero />
+        <Marquee />
+        <Features />
+        <Uses />
+        <Products />
+        <Process />
+        <Testimonials />
+        <Newsletter />
 
+        <FooterSpacer />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

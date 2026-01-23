@@ -2,6 +2,7 @@
 
 import { Leaf, ShieldCheck, Truck, Heart } from "lucide-react";
 import { motion } from "framer-motion";
+import { SpotlightBorder } from "@/components/ui/SpotlightBorder";
 
 const features = [
     {
@@ -56,17 +57,19 @@ export default function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: idx * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group border border-amber-100/50"
+                            className="h-full"
                         >
-                            <div className="w-16 h-16 mx-auto bg-gradient-to-br from-amber-100 to-amber-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-inner">
-                                <feature.icon className="w-8 h-8 text-amber-600 drop-shadow-sm" />
-                            </div>
-                            <h3 className="text-xl font-bold text-amber-950 mb-3">
-                                {feature.title}
-                            </h3>
-                            <p className="text-amber-900/60 leading-relaxed">
-                                {feature.desc}
-                            </p>
+                            <SpotlightBorder className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group border border-amber-100/50 h-full">
+                                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-amber-100 to-amber-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-inner">
+                                    <feature.icon className="w-8 h-8 text-amber-600 drop-shadow-sm" />
+                                </div>
+                                <h3 className="text-xl font-bold text-amber-950 mb-3">
+                                    {feature.title}
+                                </h3>
+                                <p className="text-amber-900/60 leading-relaxed">
+                                    {feature.desc}
+                                </p>
+                            </SpotlightBorder>
                         </motion.div>
                     ))}
                 </div>

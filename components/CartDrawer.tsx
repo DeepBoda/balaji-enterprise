@@ -192,7 +192,13 @@ export default function CartDrawer() {
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
-                                    <Button className="w-full h-12 text-lg font-bold bg-amber-600 hover:bg-amber-700 text-white rounded-xl shadow-lg shadow-amber-500/20 group">
+                                    <Button
+                                        onClick={() => {
+                                            toggleCart();
+                                            window.location.href = "/checkout";
+                                        }}
+                                        className="w-full h-12 text-lg font-bold bg-amber-600 hover:bg-amber-700 text-white rounded-xl shadow-lg shadow-amber-500/20 group"
+                                    >
                                         Checkout Now
                                         <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </Button>

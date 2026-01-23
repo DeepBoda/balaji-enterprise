@@ -5,12 +5,14 @@ import { motion } from "framer-motion";
 import { Star, ShieldCheck, Truck } from "lucide-react";
 import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
+import HeroParallax from "@/components/HeroParallax";
 
 export default function Hero() {
     return (
         <section className="relative min-h-[85vh] flex items-center pt-20 overflow-hidden bg-[#FFFBF0]">
             {/* Background Gradients */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <HeroParallax />
                 <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-[100px]" />
             </div>
 
@@ -22,22 +24,22 @@ export default function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <div className="flex items-center gap-2 mb-4">
-                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100/50 border border-amber-200 text-amber-800 text-xs font-bold tracking-wide uppercase">
+                        <div className="flex items-center gap-2 mb-6">
+                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/80 backdrop-blur-sm border border-amber-200/50 text-amber-900 text-[11px] font-black tracking-[0.2em] uppercase shadow-sm">
                                 <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
                                 #1 Rated Organic Honey
                             </span>
                         </div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-amber-950 leading-[1.1] tracking-tight">
-                            Nature&apos;s Golden <br />
-                            <span className="relative inline-block text-amber-500 italic">
+                        <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-serif font-black text-amber-950 leading-[0.9] tracking-tighter mix-blend-multiply">
+                            Nature&apos;s <span className="text-amber-900/40 italic font-light ml-2">Golden</span> <br />
+                            <span className="relative inline-block text-amber-600 z-10 italic">
                                 Elixir
                                 {/* Crazy Line Underline */}
-                                <svg className="absolute w-[120%] h-auto -bottom-4 left-0 -z-10 text-amber-500/30" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2.00025 15.0002C30.5002 5.50024 50.0002 -3.49976 82.0002 9.00024C122 24.6252 165.5 13.5 198 2.00024" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                                <svg className="absolute w-[110%] h-auto -bottom-2 left-[-5%] -z-10 text-amber-400/40" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.00025 15.0002C30.5002 5.50024 50.0002 -3.49976 82.0002 9.00024C122 24.6252 165.5 13.5 198 2.00024" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
                                 </svg>
                             </span>
-                            <span className="text-amber-950"> For You.</span>
+                            <span className="relative z-0 text-amber-950 ml-4">For You.</span>
                         </h1>
                     </motion.div>
 

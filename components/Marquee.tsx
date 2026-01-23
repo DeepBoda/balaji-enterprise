@@ -28,7 +28,7 @@ const MarqueeContent = () => (
 
 export default function Marquee() {
     return (
-        <section className="py-20 bg-[#FFFBF0] overflow-hidden relative border-y border-amber-900/5">
+        <section className="py-20 bg-[#FFFBF0] overflow-hidden relative border-y border-amber-900/5 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <MarqueeContent />
         </section>
     );

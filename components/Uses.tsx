@@ -47,8 +47,9 @@ export default function Uses() {
                                 key={idx}
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
+                                whileHover={{ x: 10, backgroundColor: "rgba(251, 191, 36, 0.1)", borderRadius: "1rem", paddingLeft: "1rem", transition: { duration: 0.2 } }}
                                 transition={{ delay: idx * 0.2 }}
-                                className="flex items-center gap-6 border-b border-amber-900/10 pb-6 last:border-0"
+                                className="flex items-center gap-6 border-b border-amber-900/10 pb-6 last:border-0 p-4 -mx-4 hover:border-amber-900/0"
                             >
                                 <div className="relative w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0 shadow-lg border border-amber-900/10">
                                     <Image

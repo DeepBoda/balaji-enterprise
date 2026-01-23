@@ -8,6 +8,9 @@ import Grain from "@/components/Grain";
 import { CartProvider } from "@/context/CartContext";
 import CartDrawer from "@/components/CartDrawer";
 import { ToastProvider } from "@/components/ui/ToastProvider";
+import BackToTop from "@/components/BackToTop";
+import CustomCursor from "@/components/ui/CustomCursor";
+import FluidBackground from "@/components/ui/FluidBackground";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -33,11 +36,13 @@ export default function RootLayout({
       >
         <CartProvider>
           <ToastProvider>
-            {/* <Grain /> */}
+            <FluidBackground />
+            <CustomCursor />
             <Preloader />
             <SmoothScroll />
             {children}
             <CartDrawer />
+            <BackToTop />
           </ToastProvider>
         </CartProvider>
       </body>
