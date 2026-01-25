@@ -17,7 +17,6 @@ export default function ServicesPage() {
                 />
                 <Recipes />
                 <Ayurveda />
-                <Ayurveda />
                 <Uses />
             </main>
             <Footer />

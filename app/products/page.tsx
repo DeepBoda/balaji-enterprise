@@ -15,7 +15,6 @@ export default function ProductsPage() {
                     image="https://images.unsplash.com/photo-1558583055-d7ac00b1adca?q=80&w=1974&auto=format&fit=crop"
                 />
                 <Products />
-                <Products />
                 <Purity />
             </main>
             <Footer />

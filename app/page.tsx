@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
+import PurityAttributes from "@/components/PurityAttributes";
 import Products from "@/components/Products";
 import Process from "@/components/Process";
 import Uses from "@/components/Uses";
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <Marquee />
         <Features />
+        <PurityAttributes />
 
         {/* Restored Sections per user request for "Heavy" feel */}
         <Products />

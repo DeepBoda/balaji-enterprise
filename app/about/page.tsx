@@ -15,7 +15,6 @@ export default function AboutPage() {
                     image="https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=2080&auto=format&fit=crop"
                 />
                 <Story />
-                <Story />
                 <Process />
             </main>
             <Footer />

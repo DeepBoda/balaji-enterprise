@@ -82,9 +82,18 @@ export default function Story() {
 
 function TimelineItem({ item, idx }: { item: any, idx: number }) {
     const isEven = idx % 2 === 0;
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"]
+    });
+
+    // Parallax effect for the year
+    const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
     return (
         <motion.div
+            ref={ref}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -93,14 +102,19 @@ function TimelineItem({ item, idx }: { item: any, idx: number }) {
         >
             {/* Content Side */}
             <div className={`flex-1 ${isEven ? 'md:text-left' : 'md:text-right'}`}>
-                <div className="bg-white p-8 rounded-2xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] border border-amber-50 hover:border-amber-100 transition-colors group">
-                    <span className="text-6xl font-serif font-bold text-amber-100 absolute -top-8 transition-colors group-hover:text-amber-200/50 select-none -z-10">
+                <div className="bg-white p-8 rounded-2xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] border border-amber-50 hover:border-amber-100 transition-colors group relative overflow-hidden">
+                    <motion.span
+                        style={{ y }}
+                        className="text-8xl font-serif font-bold text-amber-50 absolute -top-4 -right-4 transition-colors group-hover:text-amber-100 select-none z-0"
+                    >
                         {item.year}
-                    </span>
-                    <h3 className="text-2xl font-bold text-amber-950 mb-3">{item.title}</h3>
-                    <p className="text-amber-900/60 leading-relaxed">
-                        {item.desc}
-                    </p>
+                    </motion.span>
+                    <div className="relative z-10">
+                        <h3 className="text-2xl font-bold text-amber-950 mb-3">{item.title}</h3>
+                        <p className="text-amber-900/60 leading-relaxed">
+                            {item.desc}
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -108,7 +122,6 @@ function TimelineItem({ item, idx }: { item: any, idx: number }) {
             <div className="absolute left-[27px] md:left-1/2 -translate-x-1/2 flex items-center justify-center w-14 h-14 bg-amber-50 rounded-full border-4 border-white shadow-lg z-10 shrink-0">
                 <item.icon className="w-6 h-6 text-amber-600" />
             </div>
-
             {/* Empty Side for Balance */}
             <div className="flex-1 hidden md:block" />
         </motion.div>
