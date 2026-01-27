@@ -96,7 +96,7 @@ function TimelineItem({ item, idx }: { item: any, idx: number }) {
                 <div className="bg-white p-8 rounded-2xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] border border-amber-50 hover:border-amber-100 transition-colors group relative overflow-hidden">
                     {/* Fixed Static Watermark Year - High Contrast & Visibility */}
                     <span
-                        className="text-8xl font-serif font-bold text-amber-500/10 absolute -top-2 -right-2 select-none z-0"
+                        className={`text-8xl font-serif font-bold text-amber-500/10 absolute -top-2 select-none z-0 ${isEven ? '-left-2' : '-right-2'}`}
                     >
                         {item.year}
                     </span>

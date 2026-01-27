@@ -56,7 +56,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="flex flex-wrap gap-4 pt-2"
+                        className="flex flex-col sm:flex-row gap-4 pt-2"
                     >
                         <Magnetic>
                             <Button size="lg" className="h-12 px-8 text-sm font-bold rounded-full shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-105 transition-all duration-300 bg-amber-900 hover:bg-amber-800 text-white">
