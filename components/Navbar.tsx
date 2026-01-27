@@ -2,13 +2,11 @@
 
 import { ShoppingBag, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
-import { AnimatePresence } from "framer-motion";
-
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
@@ -30,10 +28,10 @@ export default function Navbar() {
     ];
 
     // Lock body scroll when menu is open
-    // useEffect(() => {
-    //   if (isOpen) document.body.style.overflow = 'hidden';
-    //   else document.body.style.overflow = 'unset';
-    // }, [isOpen]);
+    useEffect(() => {
+        if (isOpen) document.body.style.overflow = 'hidden';
+        else document.body.style.overflow = 'unset';
+    }, [isOpen]);
 
     return (
         <>
@@ -47,7 +45,7 @@ export default function Navbar() {
             >
                 <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-12">
                     {/* Logo */}
-                    <Link href="/" onClick={() => { setIsOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-2xl font-serif font-bold text-amber-900 tracking-tight z-50 relative">
+                    <Link href="/" onClick={() => { setIsOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-xl md:text-2xl font-serif font-bold text-amber-900 tracking-tight z-50 relative">
                         Balaji Enterprise
                     </Link>
 

@@ -12,7 +12,7 @@ export default function ProductsPage() {
                 <PageHero
                     title="The Collection"
                     subtitle="Small batch, wild-harvested, and completely raw. A taste of the forest in every jar."
-                    image="https://images.unsplash.com/photo-1558583055-d7ac00b1adca?q=80&w=1974&auto=format&fit=crop"
+                    image="/images/products-hero.png"
                 />
                 <Products />
                 <Purity />

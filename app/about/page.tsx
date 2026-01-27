@@ -12,7 +12,7 @@ export default function AboutPage() {
                 <PageHero
                     title="Our Journey"
                     subtitle="From the untouched canopy of the Gir forest to your table. A story of preservation, passion, and purity."
-                    image="https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=2080&auto=format&fit=crop"
+                    image="/images/about-hero.png"
                 />
                 <Story />
                 <Process />

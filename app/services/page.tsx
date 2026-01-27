@@ -13,7 +13,7 @@ export default function ServicesPage() {
                 <PageHero
                     title="Daily Rituals"
                     subtitle="Discover the myriad ways nature's liquid gold can enhance your life, from morning elixirs to nightly calm."
-                    image="https://images.unsplash.com/photo-1615485925763-867862780132?q=80&w=2069&auto=format&fit=crop"
+                    image="/images/services-hero.png"
                 />
                 <Recipes />
                 <Ayurveda />

@@ -12,7 +12,7 @@ export default function ContactPage() {
                 <PageHero
                     title="Get in Touch"
                     subtitle="Have questions about our sourcing? Want to partner with us? We'd love to hear from you."
-                    image="https://images.unsplash.com/photo-1549643276-fbc2bdfe5e1e?q=80&w=2070&auto=format&fit=crop"
+                    image="/images/contact-hero.png"
                 />
                 <div className="container mx-auto px-4 md:px-6 py-24 text-center">
 
