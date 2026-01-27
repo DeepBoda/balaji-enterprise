@@ -83,10 +83,10 @@ export default function Products() {
                     className="text-center max-w-2xl mx-auto mb-16"
                     {...scrollReveal.default}
                 >
-                    <span className="text-amber-600 font-bold tracking-wider uppercase text-xs border border-amber-200 px-3 py-1 rounded-full bg-amber-50 inline-block">
+                    <span className="text-amber-600 font-bold tracking-widest uppercase text-xs mb-4 block">
                         Fresh Stocks
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mt-4 mb-4">
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mb-8">
                         Nature&apos;s Sweetest <span className="relative inline-block text-amber-500 italic">
                             Gift
                             <svg className="absolute w-[120%] h-auto -bottom-4 left-0 -z-10 text-amber-500/30" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,8 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import React from "react";
 
 export default function Template({ children }: { children: React.ReactNode }) {
+    // Force scroll to top on page transition
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}

@@ -41,14 +41,13 @@ export default function Process() {
                         whileInView="animate"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={{
-                            initial: { opacity: 0, y: 30 },
                             animate: { opacity: 1, y: 0, transition: { duration: duration.normal, ease: easing.smoothIn } }
                         }}
                     >
-                        <span className="text-amber-600 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">
+                        <span className="text-amber-600 font-bold tracking-widest uppercase text-xs mb-4 block">
                             Our Method
                         </span>
-                        <h2 className="text-4xl md:text-6xl font-serif font-bold text-amber-950 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mb-8">
                             From <span className="relative inline-block text-amber-500 italic">
                                 Hive
                                 <motion.svg
@@ -168,6 +167,6 @@ export default function Process() {
                 </motion.div>
 
             </div>
-        </section>
+        </section >
     );
 }

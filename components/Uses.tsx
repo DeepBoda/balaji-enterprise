@@ -21,10 +21,10 @@ export default function Uses() {
 
             <div className="container mx-auto px-4 md:px-6 relative z-10 grid md:grid-cols-2 gap-16 items-center">
                 <div className="space-y-8">
-                    <span className="text-amber-600 font-bold tracking-widest uppercase text-sm">
+                    <span className="text-amber-600 font-bold tracking-widest uppercase text-xs">
                         Daily Rituals
                     </span>
-                    <h2 className="text-4xl md:text-6xl font-serif font-bold text-amber-950 leading-tight">
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 leading-tight">
                         More Than Just <br />
                         <span className="relative inline-block text-amber-500 italic">
                             Sweetness.

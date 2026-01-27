@@ -35,8 +35,11 @@ export default function Features() {
             <HoneyDrip className="absolute top-0 left-0 w-full z-10 text-white fill-white" />
 
             <div className="py-24 container mx-auto px-4 md:px-6 relative z-10">
-                <div className="text-center max-w-2xl mx-auto mb-16 pt-12">
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mb-4">
+                <div className="text-center max-w-2xl mx-auto mb-16">
+                    <span className="text-amber-600 font-bold tracking-widest uppercase text-xs mb-4 block">
+                        Our Promise
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mb-8">
                         Why Choose <span className="relative inline-block text-amber-500 italic">
                             Balaji
                             <svg className="absolute w-[120%] h-auto -bottom-4 left-0 -z-10 text-amber-500/30" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
