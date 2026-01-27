@@ -37,13 +37,13 @@ export default function Navbar() {
         <>
             <motion.nav
                 className={cn(
-                    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                    "sticky top-0 left-0 right-0 z-50 transition-all duration-300",
                     isScrolled || isOpen
-                        ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-amber-900/5 py-3"
-                        : "bg-transparent py-4"
+                        ? "bg-[#FFFBF0]/90 backdrop-blur-md shadow-sm border-b border-amber-900/5"
+                        : "bg-white/10 backdrop-blur-sm border-b border-white/10"
                 )}
             >
-                <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-12">
+                <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16">
                     {/* Logo */}
                     <Link href="/" onClick={() => { setIsOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-xl md:text-2xl font-serif font-bold text-amber-900 tracking-tight z-50 relative">
                         Balaji Enterprise
@@ -57,7 +57,7 @@ export default function Navbar() {
                                 href={item.path}
                                 className={cn(
                                     "text-sm font-medium transition-colors relative group",
-                                    pathname === item.path ? "text-amber-600" : "text-amber-900/80 hover:text-amber-600"
+                                    pathname === item.path ? "text-amber-600" : "text-amber-900 hover:text-amber-600"
                                 )}
                             >
                                 {item.name}
@@ -97,79 +97,77 @@ export default function Navbar() {
 
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
-                {/* Mobile Menu Overlay - Radical Fix */}
-                <AnimatePresence>
-                    {isOpen && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="fixed top-0 left-0 w-full h-full bg-[#FFFBF0] z-[9999] flex items-center justify-center md:hidden"
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed top-0 left-0 w-screen h-[100dvh] bg-[#FFFBF0] z-[9999] flex items-center justify-center md:hidden overflow-hidden touch-none"
+                    >
+                        {/* Logo in Mobile Menu */}
+                        <div className="absolute top-6 left-6 z-[10000] md:hidden">
+                            <span className="text-xl font-serif font-bold text-amber-900 tracking-tight">
+                                Balaji Enterprise
+                            </span>
+                        </div>
+
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-amber-950 z-[10000] md:hidden"
                         >
-                            {/* Logo in Mobile Menu */}
-                            <div className="absolute top-6 left-6 z-[10000] md:hidden">
-                                <span className="text-xl font-serif font-bold text-amber-900 tracking-tight">
-                                    Balaji Enterprise
-                                </span>
-                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 18 18" /></svg>
+                        </button>
 
-                            {/* Close Button */}
-                            <button
-                                onClick={() => setIsOpen(false)}
-                                className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-amber-950 z-[10000] md:hidden"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 18 18" /></svg>
-                            </button>
-
-                            <div className="flex flex-col items-center gap-8 relative z-20">
-                                {navLinks.map((item, idx) => (
-                                    <motion.div
-                                        key={item.name}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: 10 }}
-                                        transition={{ delay: 0.1 + idx * 0.1, duration: 0.3 }}
+                        <div className="flex flex-col items-center gap-8 relative z-20">
+                            {navLinks.map((item, idx) => (
+                                <motion.div
+                                    key={item.name}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: 10 }}
+                                    transition={{ delay: 0.1 + idx * 0.1, duration: 0.3 }}
+                                >
+                                    <Link
+                                        href={item.path}
+                                        onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
+                                        className={cn(
+                                            "text-4xl font-serif font-medium transition-colors hover:text-amber-600 block text-center relative",
+                                            pathname === item.path ? "text-amber-600 italic" : "text-amber-950"
+                                        )}
                                     >
-                                        <Link
-                                            href={item.path}
-                                            onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
-                                            className={cn(
-                                                "text-4xl font-serif font-medium transition-colors hover:text-amber-600 block text-center relative",
-                                                pathname === item.path ? "text-amber-600 italic" : "text-amber-950"
-                                            )}
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </>
-            );
+                                        {item.name}
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+    );
 }
 
-            function CartButton() {
-    const {toggleCart, count} = useCart();
+function CartButton() {
+    const { toggleCart, count } = useCart();
 
-            return (
-            <Button onClick={toggleCart} variant="ghost" size="icon" className="relative text-amber-900 hover:bg-amber-50">
-                <ShoppingBag className="w-5 h-5" />
-                <AnimatePresence>
-                    {count > 0 && (
-                        <motion.span
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            exit={{ scale: 0 }}
-                            className="absolute top-0 right-0 w-4 h-4 bg-amber-600 rounded-full ring-2 ring-white flex items-center justify-center text-[10px] font-bold text-white shadow-sm"
-                        >
-                            {count}
-                        </motion.span>
-                    )}
-                </AnimatePresence>
-            </Button>
-            );
+    return (
+        <Button onClick={toggleCart} variant="ghost" size="icon" className="relative text-amber-900 hover:bg-amber-50">
+            <ShoppingBag className="w-5 h-5" />
+            <AnimatePresence>
+                {count > 0 && (
+                    <motion.span
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        className="absolute top-0 right-0 w-4 h-4 bg-amber-600 rounded-full ring-2 ring-white flex items-center justify-center text-[10px] font-bold text-white shadow-sm"
+                    >
+                        {count}
+                    </motion.span>
+                )}
+            </AnimatePresence>
+        </Button>
+    );
 }
 

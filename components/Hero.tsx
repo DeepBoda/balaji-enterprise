@@ -9,7 +9,7 @@ import HeroParallax from "@/components/HeroParallax";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[85vh] flex items-center pt-20 overflow-hidden bg-[#FFFBF0]">
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[#FFFBF0]">
             {/* Background Gradients */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <HeroParallax />
@@ -39,7 +39,7 @@ export default function Hero() {
                                     <path d="M2.00025 15.0002C30.5002 5.50024 50.0002 -3.49976 82.0002 9.00024C122 24.6252 165.5 13.5 198 2.00024" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
                                 </svg>
                             </span>
-                            <span className="relative z-0 text-amber-950 ml-4">For You.</span>
+                            <span className="relative z-0 text-amber-950 ml-4"> For You.</span>
                         </h1>
                     </motion.div>
 

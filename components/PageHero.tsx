@@ -44,7 +44,6 @@ export default function PageHero({ title, subtitle, image, overlayOpacity = 0.4 
             </motion.div>
 
             {/* Grain Texture */}
-            {/* Grain Texture */}
             <div className="absolute inset-0 opacity-20 z-10 pointer-events-none texture-grain mix-blend-overlay" />
 
 
