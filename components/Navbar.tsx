@@ -105,7 +105,14 @@ export default function Navbar() {
                         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                         className="fixed inset-0 bg-[#FFFBF0] z-[60] flex items-center justify-center md:hidden"
                     >
-                        {/* Close Button for safety */}
+                        {/* Logo in Mobile Menu */}
+                        <div className="absolute top-6 left-6 z-50 md:hidden">
+                            <span className="text-xl font-serif font-bold text-amber-900 tracking-tight">
+                                Balaji Enterprise
+                            </span>
+                        </div>
+
+                        {/* Close Button */}
                         <button
                             onClick={() => setIsOpen(false)}
                             className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-amber-950 z-50 md:hidden"
@@ -113,26 +120,26 @@ export default function Navbar() {
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 18 18" /></svg>
                         </button>
 
-                        {/* Background Decoration */}
-                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                            <div className="absolute top-1/4 -right-20 w-80 h-80 bg-amber-200/20 rounded-full blur-[100px]" />
-                            <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-orange-200/20 rounded-full blur-[100px]" />
+                        {/* Simplified Background to fix rendering issues */}
+                        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
+                            <div className="absolute top-1/4 -right-20 w-80 h-80 bg-amber-100 rounded-full blur-[80px]" />
+                            <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-orange-100 rounded-full blur-[80px]" />
                         </div>
 
-                        <div className="flex flex-col items-center gap-8 relative z-10">
+                        <div className="flex flex-col items-center gap-8 relative z-20">
                             {navLinks.map((item, idx) => (
                                 <motion.div
                                     key={item.name}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 10 }}
-                                    transition={{ delay: 0.2 + idx * 0.1, duration: 0.4 }}
+                                    transition={{ delay: 0.1 + idx * 0.1, duration: 0.3 }}
                                 >
                                     <Link
                                         href={item.path}
                                         onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
                                         className={cn(
-                                            "text-4xl font-serif font-medium transition-colors hover:text-amber-600 block text-center z-50 relative",
+                                            "text-4xl font-serif font-medium transition-colors hover:text-amber-600 block text-center relative",
                                             pathname === item.path ? "text-amber-600 italic" : "text-amber-950"
                                         )}
                                     >
