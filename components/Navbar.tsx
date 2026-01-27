@@ -132,7 +132,7 @@ export default function Navbar() {
                                         href={item.path}
                                         onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
                                         className={cn(
-                                            "text-4xl font-serif font-medium transition-colors hover:text-amber-600 block text-center",
+                                            "text-4xl font-serif font-medium transition-colors hover:text-amber-600 block text-center z-50 relative",
                                             pathname === item.path ? "text-amber-600 italic" : "text-amber-950"
                                         )}
                                     >
