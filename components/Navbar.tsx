@@ -105,8 +105,16 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: "-100%" }}
                         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                        className="fixed inset-0 bg-[#FFFBF0] z-40 flex items-center justify-center md:hidden"
+                        className="fixed inset-0 bg-[#FFFBF0] z-[60] flex items-center justify-center md:hidden"
                     >
+                        {/* Close Button for safety */}
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-amber-950 z-50 md:hidden"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 18 18" /></svg>
+                        </button>
+
                         {/* Background Decoration */}
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                             <div className="absolute top-1/4 -right-20 w-80 h-80 bg-amber-200/20 rounded-full blur-[100px]" />
@@ -124,7 +132,7 @@ export default function Navbar() {
                                 >
                                     <Link
                                         href={item.path}
-                                        onClick={() => setIsOpen(false)}
+                                        onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
                                         className={cn(
                                             "text-4xl font-serif font-medium transition-colors hover:text-amber-600 block text-center",
                                             pathname === item.path ? "text-amber-600 italic" : "text-amber-950"

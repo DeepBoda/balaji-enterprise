@@ -43,7 +43,7 @@ export default function Testimonials() {
                         <span className="text-amber-600 font-bold tracking-widest uppercase text-xs mb-4 block">
                             Community Love
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mt-3">
+                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mb-8">
                             What Our <span className="relative inline-block text-amber-500 italic">
                                 Customers
                                 <motion.svg

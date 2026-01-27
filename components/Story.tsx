@@ -55,7 +55,7 @@ export default function Story() {
                     <span className="text-amber-600 font-bold tracking-widest uppercase text-xs mb-4 block">
                         Our Legend
                     </span>
-                    <h2 className="text-4xl md:text-6xl font-serif font-bold text-amber-950 mb-8 leading-tight">
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 mb-8 leading-tight">
                         It started with a single <br />
                         <span className="text-amber-500 italic">drop of wonder.</span>
                     </h2>

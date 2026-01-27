@@ -55,16 +55,6 @@ export default function PageHero({ title, subtitle, image, overlayOpacity = 0.4 
                 style={{ opacity }}
                 className="relative z-20 container mx-auto px-4 md:px-6 text-center text-white"
             >
-                <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                >
-                    <span className="inline-block py-1 px-3 border border-white/20 rounded-full bg-white/10 backdrop-blur-md text-xs font-bold tracking-[0.2em] uppercase mb-6">
-                        Balaji Enterprise
-                    </span>
-                </motion.div>
-
                 <motion.h1
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
