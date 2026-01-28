@@ -3,6 +3,12 @@ import PageHero from "@/components/PageHero";
 import ContactMap from "@/components/ContactMap";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contact Us",
+    description: "Get in touch with Balaji Enterprise. We'd love to hear from you regarding partnerships, sourcing, or general inquiries.",
+};
 
 export default function ContactPage() {
     return (

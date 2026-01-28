@@ -3,6 +3,12 @@ import PageHero from "@/components/PageHero";
 import Products from "@/components/Products";
 import Purity from "@/components/Purity";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Shop Organic Honey",
+    description: "Small batch, wild-harvested, and completely raw honey. Explore our collection of nature's finest elixirs.",
+};
 
 export default function ProductsPage() {
     return (

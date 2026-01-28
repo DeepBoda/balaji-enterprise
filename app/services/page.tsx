@@ -4,6 +4,12 @@ import Uses from "@/components/Uses";
 import Recipes from "@/components/Recipes";
 import Ayurveda from "@/components/Ayurveda";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Rituals & Uses",
+    description: "Discover the myriad ways nature's liquid gold can enhance your life, from Ayurvedic remedies to daily wellness rituals.",
+};
 
 export default function ServicesPage() {
     return (
