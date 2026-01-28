@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
 import { CartProvider } from "@/context/CartContext";
@@ -10,6 +12,7 @@ import { ToastProvider } from "@/components/ui/ToastProvider";
 import BackToTop from "@/components/BackToTop";
 import CustomCursor from "@/components/ui/CustomCursor";
 import FluidBackground from "@/components/ui/FluidBackground";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -80,7 +83,10 @@ export default function RootLayout({
             <CustomCursor />
             <Preloader />
             <SmoothScroll />
+            <ScrollToTop />
+            <Navbar />
             {children}
+            <Footer />
             <CartDrawer />
           </ToastProvider>
         </CartProvider>

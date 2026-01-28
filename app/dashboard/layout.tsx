@@ -6,6 +6,8 @@ import { LayoutDashboard, ShoppingBag, Settings, User, LogOut, Package } from "l
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
+import DashboardMobileNav from "@/components/ui/DashboardMobileNav";
+
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
 
@@ -18,7 +20,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     ];
 
     return (
-        <div className="min-h-screen bg-[#FFFBF0] flex">
+        <div className="min-h-screen bg-[#FFFBF0] flex flex-col md:flex-row">
+            <DashboardMobileNav links={links} />
             {/* Sidebar */}
             <aside className="w-64 bg-white border-r border-amber-900/10 fixed inset-y-0 left-0 z-40 hidden md:flex flex-col">
                 <div className="h-16 flex items-center px-6 border-b border-amber-900/10">
@@ -67,8 +70,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 md:ml-64 min-h-screen">
-                <div className="p-8">
+            <main className="flex-1 md:ml-64 min-h-[calc(100vh-64px)] md:min-h-screen">
+                <div className="p-4 md:p-8">
                     {children}
                 </div>
             </main>

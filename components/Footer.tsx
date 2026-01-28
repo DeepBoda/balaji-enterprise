@@ -1,8 +1,14 @@
+"use client";
+
 import { Reveal } from "@/components/ui/Reveal";
 import { Instagram, Phone } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+    const pathname = usePathname();
+    if (pathname?.startsWith("/dashboard")) return null;
+
     return (
         <footer id="site-footer" className="relative w-full bg-[#140D05] text-[#FDF6E3] pt-16 pb-0 overflow-hidden z-20">
             {/* Crisp Top Border */}

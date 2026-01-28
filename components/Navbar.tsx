@@ -1,13 +1,15 @@
 "use client";
 
-import { ShoppingBag, Menu } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { usePathname } from "next/navigation";
+import MobileMenu from "@/components/ui/MobileMenu";
+import { hoverVariants } from "@/lib/motion";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -16,8 +18,10 @@ export default function Navbar() {
     const pathname = usePathname();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
-        setIsScrolled(latest > 50);
+        setIsScrolled(latest > 20);
     });
+
+    if (pathname?.startsWith("/dashboard")) return null;
 
     const navLinks = [
         { name: "Home", path: "/" },
@@ -27,26 +31,28 @@ export default function Navbar() {
         { name: "Contact", path: "/contact" }
     ];
 
-    // Lock body scroll when menu is open
-    useEffect(() => {
-        if (isOpen) document.body.style.overflow = 'hidden';
-        else document.body.style.overflow = 'unset';
-    }, [isOpen]);
-
     return (
         <>
             <motion.nav
+                initial={{ y: -100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className={cn(
-                    "sticky top-0 left-0 right-0 z-50 transition-all duration-300",
+                    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                     isScrolled || isOpen
-                        ? "bg-[#FFFBF0]/90 backdrop-blur-md shadow-sm border-b border-amber-900/5"
-                        : "bg-white/10 backdrop-blur-sm border-b border-white/10"
+                        ? "bg-[#FFFBF0]/80 backdrop-blur-xl shadow-sm border-b border-amber-900/5 py-4"
+                        : "bg-transparent py-6"
                 )}
             >
-                <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16">
+                <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" onClick={() => { setIsOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-xl md:text-2xl font-serif font-bold text-amber-900 tracking-tight z-50 relative">
+                    <Link
+                        href="/"
+                        className="text-2xl font-serif font-bold text-amber-950 tracking-tight z-50 relative group"
+                        onClick={() => isOpen && setIsOpen(false)}
+                    >
                         Balaji Enterprise
+                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-amber-600"></span>
                     </Link>
 
                     {/* Desktop Nav */}
@@ -56,13 +62,13 @@ export default function Navbar() {
                                 key={item.name}
                                 href={item.path}
                                 className={cn(
-                                    "text-sm font-medium transition-colors relative group",
+                                    "text-sm font-medium transition-colors relative group py-2",
                                     pathname === item.path ? "text-amber-600" : "text-amber-900 hover:text-amber-600"
                                 )}
                             >
                                 {item.name}
                                 <span className={cn(
-                                    "absolute -bottom-1 left-0 h-0.5 bg-amber-400 transition-all duration-300",
+                                    "absolute bottom-0 left-0 h-0.5 bg-amber-600 transition-all duration-300 ease-out",
                                     pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
                                 )} />
                             </Link>
@@ -70,81 +76,27 @@ export default function Navbar() {
                     </div>
 
                     {/* Actions */}
-                    <div className="flex items-center gap-4 z-50 relative">
+                    <div className="flex items-center gap-2 z-50 relative">
                         <CartButton />
 
-                        {/* Mobile Hamburger - Animated */}
+                        {/* Hamburger Button */}
                         <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="flex flex-col justify-center items-center w-10 h-10 space-y-1.5 md:hidden focus:outline-none"
+                            onClick={() => setIsOpen(true)}
+                            className="w-10 h-10 flex flex-col justify-center items-center gap-1.5 md:hidden text-amber-950 hover:bg-amber-900/5 rounded-full transition-colors"
+                            aria-label="Open menu"
                         >
-                            <motion.span
-                                animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-                                className="block w-6 h-0.5 bg-amber-950 rounded-full transition-transform"
-                            />
-                            <motion.span
-                                animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-                                className="block w-6 h-0.5 bg-amber-950 rounded-full"
-                            />
-                            <motion.span
-                                animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                                className="block w-6 h-0.5 bg-amber-950 rounded-full transition-transform"
-                            />
+                            <span className="w-5 h-0.5 bg-current rounded-full" />
+                            <span className="w-5 h-0.5 bg-current rounded-full" />
                         </button>
                     </div>
                 </div>
             </motion.nav>
 
-            {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="fixed top-0 left-0 w-screen h-[100dvh] bg-[#FFFBF0] z-[9999] flex items-center justify-center md:hidden overflow-hidden touch-none"
-                    >
-                        {/* Logo in Mobile Menu */}
-                        <div className="absolute top-6 left-6 z-[10000] md:hidden">
-                            <span className="text-xl font-serif font-bold text-amber-900 tracking-tight">
-                                Balaji Enterprise
-                            </span>
-                        </div>
-
-                        {/* Close Button */}
-                        <button
-                            onClick={() => setIsOpen(false)}
-                            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-amber-950 z-[10000] md:hidden"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 18 18" /></svg>
-                        </button>
-
-                        <div className="flex flex-col items-center gap-8 relative z-20">
-                            {navLinks.map((item, idx) => (
-                                <motion.div
-                                    key={item.name}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: 10 }}
-                                    transition={{ delay: 0.1 + idx * 0.1, duration: 0.3 }}
-                                >
-                                    <Link
-                                        href={item.path}
-                                        onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
-                                        className={cn(
-                                            "text-4xl font-serif font-medium transition-colors hover:text-amber-600 block text-center relative",
-                                            pathname === item.path ? "text-amber-600 italic" : "text-amber-950"
-                                        )}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            <MobileMenu
+                isOpen={isOpen}
+                onClose={() => setIsOpen(false)}
+                links={navLinks}
+            />
         </>
     );
 }
@@ -153,7 +105,15 @@ function CartButton() {
     const { toggleCart, count } = useCart();
 
     return (
-        <Button onClick={toggleCart} variant="ghost" size="icon" className="relative text-amber-900 hover:bg-amber-50">
+        <motion.button
+            variants={hoverVariants.buttonHover}
+            initial="rest"
+            whileHover="hover"
+            whileTap="tap"
+            onClick={toggleCart}
+            className="w-10 h-10 flex items-center justify-center rounded-full text-amber-900 hover:bg-amber-100/50 transition-colors relative"
+            aria-label="Shopping Cart"
+        >
             <ShoppingBag className="w-5 h-5" />
             <AnimatePresence>
                 {count > 0 && (
@@ -161,13 +121,12 @@ function CartButton() {
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
-                        className="absolute top-0 right-0 w-4 h-4 bg-amber-600 rounded-full ring-2 ring-white flex items-center justify-center text-[10px] font-bold text-white shadow-sm"
+                        className="absolute -top-1 -right-1 w-5 h-5 bg-amber-600 rounded-full flex items-center justify-center text-[10px] font-bold text-white shadow-sm border-2 border-[#FFFBF0]"
                     >
                         {count}
                     </motion.span>
                 )}
             </AnimatePresence>
-        </Button>
+        </motion.button>
     );
 }
-
