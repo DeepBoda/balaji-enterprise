@@ -31,7 +31,7 @@ import HoneyDrip from "@/components/ui/HoneyDrip";
 
 export default function Features() {
     return (
-        <section className="relative bg-amber-50 relative overflow-hidden">
+        <section className="relative bg-amber-50 overflow-hidden">
             <HoneyDrip className="absolute top-0 left-0 w-full z-10 text-white fill-white" />
 
             <div className="py-24 container mx-auto px-4 md:px-6 relative z-10">

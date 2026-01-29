@@ -37,15 +37,14 @@ export default function Footer() {
 
                     {/* Links Section - Grid for remaining columns */}
                     <div className="md:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8">
-                        {/* Column 1 */}
                         <div>
                             <Reveal delay={0.2}>
                                 <h4 className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] mb-4">Explore</h4>
                                 <ul className="space-y-3">
                                     {[
-                                        { name: "Shop", href: "/products" },
-                                        { name: "Our Honey", href: "/products" },
-                                        { name: "Process", href: "/about" },
+                                        { name: "All Products", href: "/products" },
+                                        { name: "Our Story", href: "/about" },
+                                        { name: "Rituals", href: "/services" },
                                         { name: "Wholesale", href: "/contact" }
                                     ].map((item) => (
                                         <li key={item.name}>
@@ -65,7 +64,6 @@ export default function Footer() {
                                 <ul className="space-y-3">
                                     {[
                                         { name: "Contact Us", href: "/contact" },
-                                        { name: "FAQ", href: "/contact" },
                                         { name: "Shipping", href: "/policies" },
                                         { name: "Returns", href: "/policies" }
                                     ].map((item) => (
@@ -115,7 +113,7 @@ export default function Footer() {
             {/* MASSIVE FOOTER TEXT - GEN Z / LUXURY ENDING */}
             <div className="w-full relative pt-12 pb-12 flex justify-center items-center overflow-hidden">
                 <Reveal delay={0.6} y={50} blur={false} width="100%">
-                    <h1 className="text-[13vw] md:text-[13.5vw] font-serif font-black text-transparent opacity-20 tracking-tight whitespace-nowrap leading-none text-center w-full select-none" style={{ WebkitTextStroke: "1px #FDF6E3" }}>
+                    <h1 className="text-[9vw] sm:text-[11vw] md:text-[13.5vw] font-serif font-black text-transparent opacity-20 tracking-tight whitespace-nowrap leading-none text-center w-full select-none" style={{ WebkitTextStroke: "1px #FDF6E3" }}>
                         NATURE HONEY
                     </h1>
                 </Reveal>

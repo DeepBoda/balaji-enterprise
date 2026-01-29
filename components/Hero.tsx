@@ -30,7 +30,7 @@ export default function Hero() {
                                 #1 Rated Organic Honey
                             </span>
                         </div>
-                        <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-serif font-black text-amber-950 leading-[0.9] tracking-tighter mix-blend-multiply">
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-serif font-black text-amber-950 leading-[0.9] tracking-tighter mix-blend-multiply">
                             Nature&apos;s <span className="text-amber-900/40 italic font-light ml-2">Golden</span> <br />
                             <span className="relative inline-block text-amber-600 z-10 italic">
                                 Elixir
@@ -74,7 +74,7 @@ export default function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0.6 }}
-                        className="pt-8 flex items-center gap-8 border-t border-amber-900/10"
+                        className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 border-t border-amber-900/10"
                     >
                         <div className="flex items-center gap-2">
                             <div className="p-1.5 bg-amber-100 rounded-lg text-amber-700">

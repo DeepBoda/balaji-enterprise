@@ -27,10 +27,30 @@ export default function Navbar() {
         { name: "Contact", path: "/contact" }
     ];
 
+    // Close menu on route change
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
+
     // Lock body scroll when menu is open
     useEffect(() => {
-        if (isOpen) document.body.style.overflow = 'hidden';
-        else document.body.style.overflow = 'unset';
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            document.body.style.touchAction = 'none';
+        } else {
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.touchAction = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.touchAction = '';
+        };
     }, [isOpen]);
 
     return (
@@ -103,7 +123,7 @@ export default function Navbar() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed top-0 left-0 w-screen h-[100dvh] bg-[#FFFBF0] z-[9999] flex items-center justify-center md:hidden overflow-hidden touch-none"
+                        className="fixed inset-0 w-screen h-[100dvh] bg-[#FFFBF0] z-[99999] flex items-center justify-center md:hidden overflow-hidden touch-none"
                     >
                         {/* Logo in Mobile Menu */}
                         <div className="absolute top-6 left-6 z-[10000] md:hidden">
@@ -117,7 +137,7 @@ export default function Navbar() {
                             onClick={() => setIsOpen(false)}
                             className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-amber-950 z-[10000] md:hidden"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 18 18" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="M6 6 18 18" /></svg>
                         </button>
 
                         <div className="flex flex-col items-center gap-8 relative z-20">
