@@ -34,7 +34,7 @@ export default function Testimonials() {
                     <motion.div
                         initial="initial"
                         whileInView="animate"
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, margin: "-50px" }}
                         variants={{
                             initial: { opacity: 0, y: 20 },
                             animate: { opacity: 1, y: 0, transition: { duration: duration.normal, ease: easing.smoothIn } }

@@ -22,6 +22,18 @@ function AnimatedNumber({ value }: { value: number }) {
 export default function CartDrawer() {
     const { isOpen, toggleCart, items, removeFromCart, updateQuantity, total, count } = useCart();
 
+    // Lock body scroll when drawer is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
+
     return (
         <AnimatePresence>
             {isOpen && (

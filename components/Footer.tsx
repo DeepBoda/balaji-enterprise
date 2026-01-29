@@ -22,10 +22,10 @@ export default function Footer() {
                                 Pure, raw, and ethically sourced wild honey. Delivering nature&apos;s finest nectar directly to your doorstep with uncompromising quality.
                             </p>
                             <div className="flex gap-4">
-                                <a href="https://www.instagram.com/nature_honey_2018" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
+                                <a href="https://www.instagram.com/nature_honey_2018" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
                                     <Instagram size={18} />
                                 </a>
-                                <a href="tel:+919574155240" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
+                                <a href="tel:+919574155240" aria-label="Call us" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 cursor-pointer text-white/60">
                                     <Phone size={18} />
                                 </a>
                             </div>

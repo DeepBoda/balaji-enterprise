@@ -132,7 +132,7 @@ export default function Products() {
                                             <div className="aspect-square bg-amber-50 rounded-2xl mb-3 relative overflow-hidden flex-shrink-0">
                                                 <Image
                                                     src={product.image}
-                                                    alt={product.name}
+                                                    alt={`${product.name} - Pure Organic Honey`}
                                                     fill
                                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                                 />
@@ -159,6 +159,7 @@ export default function Products() {
                                                     <Button
                                                         onClick={(e) => handleAddToCart(product, e)}
                                                         size="sm"
+                                                        aria-label={`Add ${product.name} to cart`}
                                                         className="w-full bg-white/90 backdrop-blur text-amber-950 hover:bg-amber-500 hover:text-white shadow-lg text-xs font-bold h-9 relative overflow-hidden group/btn"
                                                         disabled={addingToCart === product.id}
                                                     >
@@ -209,6 +210,7 @@ export default function Products() {
                                                             onClick={(e) => handleAddToCart(product, e)}
                                                             size="icon"
                                                             variant="ghost"
+                                                            aria-label={`Quick add ${product.name}`}
                                                             className="rounded-full w-8 h-8 text-amber-400 hover:text-amber-600 hover:bg-amber-50"
                                                         >
                                                             <ShoppingBag className="w-4 h-4" />

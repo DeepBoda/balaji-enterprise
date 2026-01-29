@@ -10,6 +10,7 @@ import { ToastProvider } from "@/components/ui/ToastProvider";
 import BackToTop from "@/components/BackToTop";
 import CustomCursor from "@/components/ui/CustomCursor";
 import FluidBackground from "@/components/ui/FluidBackground";
+import WhatsAppCTA from "@/components/WhatsAppCTA";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -82,6 +83,8 @@ export default function RootLayout({
             <SmoothScroll />
             {children}
             <CartDrawer />
+            <BackToTop />
+            <WhatsAppCTA />
           </ToastProvider>
         </CartProvider>
       </body>

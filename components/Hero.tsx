@@ -6,6 +6,7 @@ import { Star, ShieldCheck, Truck } from "lucide-react";
 import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
 import HeroParallax from "@/components/HeroParallax";
+import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -59,14 +60,18 @@ export default function Hero() {
                         className="flex flex-col sm:flex-row gap-4 pt-2"
                     >
                         <Magnetic>
-                            <Button size="lg" className="h-12 px-8 text-sm font-bold rounded-full shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-105 transition-all duration-300 bg-amber-900 hover:bg-amber-800 text-white">
-                                Shop Now - ₹350
-                            </Button>
+                            <Link href="/products">
+                                <Button size="lg" className="h-12 px-8 text-sm font-bold rounded-full shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-105 transition-all duration-300 bg-amber-900 hover:bg-amber-800 text-white">
+                                    Shop Now - ₹350
+                                </Button>
+                            </Link>
                         </Magnetic>
                         <Magnetic>
-                            <Button variant="outline" size="lg" className="h-12 px-8 text-sm font-bold rounded-full border-2 border-amber-200 hover:bg-amber-50 hover:border-amber-300 text-amber-900">
-                                View Benefits
-                            </Button>
+                            <Link href="#our-honey">
+                                <Button variant="outline" size="lg" className="h-12 px-8 text-sm font-bold rounded-full border-2 border-amber-200 hover:bg-amber-50 hover:border-amber-300 text-amber-900">
+                                    View Benefits
+                                </Button>
+                            </Link>
                         </Magnetic>
                     </motion.div>
 
@@ -124,7 +129,8 @@ export default function Hero() {
                         <motion.div
                             animate={{ y: [0, -10, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-4 -right-4 bg-white p-3 rounded-xl shadow-lg border border-amber-50 z-20"
+                            whileHover={{ scale: 1.1, rotate: 3 }}
+                            className="absolute -top-4 -right-4 bg-white p-3 rounded-xl shadow-lg border border-amber-50 z-20 cursor-default"
                         >
                             <div className="flex items-center gap-2 mb-0.5">
                                 <span className="p-1 bg-amber-50 rounded-full text-amber-600">
@@ -138,7 +144,8 @@ export default function Hero() {
                         <motion.div
                             animate={{ y: [0, 10, 0] }}
                             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                            className="absolute -bottom-6 -left-2 bg-white/95 backdrop-blur p-3 rounded-xl shadow-lg border border-amber-50 z-20"
+                            whileHover={{ scale: 1.1, rotate: -3 }}
+                            className="absolute -bottom-6 -left-2 bg-white/95 backdrop-blur p-3 rounded-xl shadow-lg border border-amber-50 z-20 cursor-default"
                         >
                             <p className="text-sm font-bold text-amber-950 flex items-center gap-1.5">
                                 <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />

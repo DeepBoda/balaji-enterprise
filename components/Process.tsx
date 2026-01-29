@@ -99,8 +99,9 @@ export default function Process() {
                             }}
                             style={{
                                 offsetPath: 'path("M0,50 C200,50 300,20 400,20 S500,50 600,50 S700,80 800,80 S1000,50 1200,50")',
-                                display: "block" // Ensure browser support for Motion Path
+                                display: "block"
                             }}
+                            className="motion-safe:block motion-reduce:hidden"
                         />
                     </svg>
 

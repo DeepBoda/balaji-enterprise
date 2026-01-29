@@ -129,3 +129,30 @@ html::-webkit-scrollbar {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
+
+/* Mobile Touch Optimizations */
+@media (hover: none) {
+  .hover\:scale-105:active {
+    transform: scale(1.05);
+  }
+  
+  .hover\:bg-amber-50:active {
+    background-color: rgb(255 251 235);
+  }
+}
+
+/* Tap highlight removal for iOS */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth transforms */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Pattern dots utility */
+.pattern-dots {
+  background-image: radial-gradient(circle, rgba(146, 64, 14, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

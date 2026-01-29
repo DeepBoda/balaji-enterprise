@@ -96,7 +96,9 @@ export default function Navbar() {
                         {/* Mobile Hamburger - Animated */}
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="flex flex-col justify-center items-center w-10 h-10 space-y-1.5 md:hidden focus:outline-none"
+                            aria-label={isOpen ? "Close menu" : "Open menu"}
+                            aria-expanded={isOpen}
+                            className="flex flex-col justify-center items-center w-10 h-10 space-y-1.5 md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg"
                         >
                             <motion.span
                                 animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
@@ -135,7 +137,8 @@ export default function Navbar() {
                         {/* Close Button */}
                         <button
                             onClick={() => setIsOpen(false)}
-                            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-amber-950 z-[10000] md:hidden"
+                            aria-label="Close menu"
+                            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-amber-950 z-[10000] md:hidden hover:bg-amber-100/50 rounded-full transition-colors"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="M6 6 18 18" /></svg>
                         </button>
